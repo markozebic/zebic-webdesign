@@ -261,6 +261,65 @@ details p{color:var(--grau); margin:14px 0 0; max-width:46rem}
 .weg .art{font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:var(--grau); display:block; margin-bottom:10px}
 .weg .ziel{font-size:1.08rem; font-weight:600; letter-spacing:-.01em; word-break:break-word}
 
+/* ===== Anfrage-Assistent ===== */
+.assistent{
+  border:1px solid var(--linie); border-radius:22px; overflow:hidden; background:var(--schwarz);
+  box-shadow:0 30px 90px rgba(0,0,0,.5);
+}
+.assi-kopf{display:flex; align-items:center; gap:14px; padding:20px clamp(20px,3vw,32px); border-bottom:1px solid var(--linie)}
+.assi-kopf .led{width:7px; height:7px; border-radius:50%; background:var(--akzent); animation:puls 2.4s infinite; flex:none}
+.assi-kopf .titel{font-weight:600; letter-spacing:-.01em}
+.assi-kopf .schritt{margin-left:auto; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--grau); white-space:nowrap}
+.assi-balken{height:2px; background:var(--linie)}
+.assi-balken i{display:block; height:100%; width:0; background:var(--akzent); transition:width .45s cubic-bezier(.2,.7,.3,1)}
+.assi-koerper{padding:clamp(24px,4vw,44px)}
+.assi-frage{font-size:clamp(1.3rem,3.4vw,2.1rem); font-weight:600; letter-spacing:-.03em; margin:0 0 26px; line-height:1.1}
+.assi-optionen{display:grid; gap:10px}
+.assi-opt{
+  display:flex; align-items:center; gap:16px; width:100%; text-align:left; cursor:pointer;
+  background:none; color:inherit; font:inherit; border:1px solid var(--linie); border-radius:14px;
+  padding:18px 22px; transition:border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.assi-opt:hover{border-color:var(--akzent); background:rgba(59,111,245,.07); transform:translateX(4px)}
+.assi-opt .ziffer{font-size:.72rem; color:var(--grau); font-variant-numeric:tabular-nums}
+.assi-opt .text{font-weight:600; letter-spacing:-.01em}
+.assi-opt .zusatz{display:block; font-weight:400; color:var(--grau); font-size:.9rem; margin-top:3px}
+.assi-opt .pf{margin-left:auto; color:var(--akzent); opacity:0; transition:opacity .2s ease}
+.assi-opt:hover .pf{opacity:1}
+.assi-zurueck{
+  margin-top:22px; background:none; border:none; color:var(--grau); font:inherit; font-size:.88rem;
+  cursor:pointer; padding:0; text-decoration:underline; text-underline-offset:4px;
+}
+.assi-zurueck:hover{color:var(--elfenbein)}
+
+/* Ergebnis */
+.assi-ergebnis .summe{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 18px; margin-bottom:8px}
+.assi-ergebnis .preis-gross{font-size:clamp(2.6rem,9vw,5rem); font-weight:600; letter-spacing:-.05em; color:var(--akzent); line-height:1; font-variant-numeric:tabular-nums}
+.assi-ergebnis .fest{font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--grau)}
+.assi-liste{list-style:none; margin:24px 0 0; padding:0; display:grid; gap:0}
+.assi-liste li{display:flex; justify-content:space-between; gap:20px; padding-block:13px; border-top:1px solid var(--linie); font-size:.96rem}
+.assi-liste li:last-child{border-bottom:1px solid var(--linie)}
+.assi-liste .k{color:var(--grau)}
+.assi-liste .v{font-weight:600; text-align:right}
+.assi-knoepfe{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.assi-hinweis{margin-top:18px; font-size:.86rem; color:var(--grau)}
+.wa-gruen{background:#25d366; color:#062813; border-color:#25d366}
+.wa-gruen:hover{background:#1fbb59; border-color:#1fbb59; color:#062813}
+
+/* Schwebender WhatsApp-Knopf */
+#wa-schwebt{
+  position:fixed; right:clamp(14px,3vw,28px); bottom:clamp(14px,3vw,28px); z-index:70;
+  display:flex; align-items:center; gap:11px; padding:14px 20px 14px 16px; border-radius:999px;
+  background:#25d366; color:#062813; font-weight:700; font-size:.94rem; letter-spacing:-.01em;
+  box-shadow:0 12px 34px rgba(0,0,0,.45); opacity:0; transform:translateY(16px); pointer-events:none;
+  transition:opacity .4s ease, transform .4s ease, background .2s ease;
+}
+#wa-schwebt.da{opacity:1; transform:none; pointer-events:auto}
+#wa-schwebt:hover{background:#1fbb59}
+#wa-schwebt svg{width:21px; height:21px; flex:none}
+body.menue-auf #wa-schwebt{opacity:0; pointer-events:none}
+@media (max-width:520px){#wa-schwebt .wort{display:none} #wa-schwebt{padding:15px}}
+
 /* ===== Fuß ===== */
 footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-block:50px 60px; font-size:.88rem; color:var(--grau)}
 .fussreihe{display:flex; flex-wrap:wrap; gap:16px 36px; justify-content:space-between; align-items:baseline}
@@ -299,6 +358,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       <a href="#arbeiten">Arbeiten</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#fragen">Fragen</a>
+      <a href="#rechner">Preis berechnen</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="frei"><span class="led"></span> Freie Kapazität</div>
@@ -314,6 +374,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   <a href="#arbeiten">Arbeiten</a>
   <a href="#ablauf">Ablauf</a>
   <a href="#fragen">Fragen</a>
+  <a href="#rechner">Preis berechnen</a>
   <a href="#kontakt">Kontakt</a>
   <div class="fussnote">0176 13471238 · Freie Kapazität</div>
 </div>
@@ -492,9 +553,27 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   </div>
 </section>
 
+<section id="rechner">
+  <div class="wrap">
+    <div class="kapitel auf">06 — Was es bei Ihnen kostet</div>
+    <h2 class="wortreveal">Vier Fragen, dann steht der Preis.</h2>
+    <p class="einleitung auf">Kein Formular, keine Mailadresse nötig. Am Ende bekommen Sie eine fertige Nachricht, die Sie mit einem Tipp abschicken können — oder einfach anrufen.</p>
+
+    <div class="assistent auf" id="assi">
+      <div class="assi-kopf">
+        <span class="led"></span>
+        <span class="titel">Anfrage-Assistent</span>
+        <span class="schritt" id="assi-schritt">Schritt 1 von 3</span>
+      </div>
+      <div class="assi-balken"><i id="assi-balken"></i></div>
+      <div class="assi-koerper" id="assi-koerper"></div>
+    </div>
+  </div>
+</section>
+
 <section id="kontakt" class="kontakt">
   <div class="wrap">
-    <div class="kapitel auf">06 — Kontakt</div>
+    <div class="kapitel auf">07 — Kontakt</div>
     <p class="riesig wortreveal">Erzählen Sie mir in zwei Sätzen, worum es geht.</p>
     <p class="einleitung auf">Sie bekommen eine ehrliche Einschätzung und einen Festpreis — oder den Hinweis, dass Sie das Geld nicht ausgeben müssen.</p>
     <div class="wege">
@@ -506,6 +585,11 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 </section>
 
 </main>
+
+<a id="wa-schwebt" href="https://wa.me/4917613471238?text=Hallo%20Marko%2C%20ich%20habe%20eine%20Frage%20zu%20meiner%20Website." target="_blank" rel="noopener" aria-label="WhatsApp-Nachricht schreiben">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2.5c-5.24 0-9.5 4.26-9.5 9.5 0 1.67.44 3.3 1.27 4.74L2.5 21.5l4.89-1.28a9.46 9.46 0 004.65 1.22h.01c5.24 0 9.5-4.26 9.5-9.5s-4.27-9.44-9.51-9.44zm0 17.4h-.01a7.9 7.9 0 01-4.02-1.1l-.29-.17-2.9.76.77-2.83-.19-.3a7.88 7.88 0 01-1.21-4.21c0-4.36 3.55-7.9 7.91-7.9 2.11 0 4.1.82 5.59 2.32a7.86 7.86 0 012.31 5.59c0 4.36-3.55 7.9-7.96 7.9z"/></svg>
+  <span class="wort">WhatsApp</span>
+</a>
 
 <footer>
   <div class="wrap">
@@ -663,6 +747,149 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   } else {
     document.querySelectorAll('.wortreveal span').forEach(function(s){ s.classList.add('hell'); });
   }
+
+  /* ---- Schwebender WhatsApp-Knopf: erscheint nach dem ersten Bildschirm ---- */
+  (function(){
+    var wa = document.getElementById('wa-schwebt');
+    if(!wa) return;
+    function pruefe(){ wa.classList.toggle('da', scrollY > innerHeight * 0.75); }
+    addEventListener('scroll', pruefe, {passive:true});
+    pruefe();
+  })();
+
+  /* ---- Anfrage-Assistent ---- */
+  (function(){
+    var koerper = document.getElementById('assi-koerper'),
+        balken  = document.getElementById('assi-balken'),
+        anzeige = document.getElementById('assi-schritt');
+    if(!koerper) return;
+
+    var TEL = '+4917613471238', WA = '4917613471238', MAIL = 'info@zebic-webdesign.de';
+    var pfad = [], stand = 'start';
+
+    var schritte = {
+      start: {
+        frage: 'Worum geht es bei Ihnen?',
+        optionen: [
+          {text:'Ich brauche eine neue Internetseite', zusatz:'Noch keine Seite oder eine, die abgelöst gehört', weiter:'seiten'},
+          {text:'Ich brauche einen Onlineshop',        zusatz:'Verkaufen über die eigene Seite',               weiter:'produkte'},
+          {text:'Meine Seite oder mein Shop hat ein Problem', zusatz:'Etwas funktioniert nicht',               weiter:'problem'},
+          {text:'Ich weiß noch nicht, was ich brauche', zusatz:'Erst mal jemanden fragen',
+           ende:{was:'Beratung, 60 Minuten', preis:59, dauer:'Termin meist in der laufenden Woche'}}
+        ]
+      },
+      seiten: {
+        frage: 'Wie viel soll darauf stehen?',
+        optionen: [
+          {text:'Eine Seite reicht',      zusatz:'Leistungen, Öffnungszeiten, Kontakt — alles untereinander', ende:{was:'Internetseite, eine Seite', preis:349, dauer:'5 Werktage'}},
+          {text:'Mehrere Unterseiten',    zusatz:'Zum Beispiel Startseite, Leistungen, Über uns, Kontakt',    ende:{was:'Internetseite, mehrseitig', preis:449, dauer:'7 Werktage'}},
+          {text:'Dazu eine Speisekarte oder Preisliste', zusatz:'Wie bei einem Restaurant oder Salon',        ende:{was:'Internetseite mit Karte', preis:499, dauer:'7 Werktage'}}
+        ]
+      },
+      produkte: {
+        frage: 'Wie viele Artikel sollen hinein?',
+        optionen: [
+          {text:'Bis 20 Artikel',  zusatz:'Überschaubares Sortiment',        ende:{was:'Shopify-Shop bis 20 Artikel',  preis:449, dauer:'7 Werktage'}},
+          {text:'Bis 100 Artikel', zusatz:'Mit Kategorien und Filtern',      ende:{was:'Shopify-Shop bis 100 Artikel', preis:649, dauer:'10 Werktage'}},
+          {text:'Deutlich mehr',   zusatz:'Dann schauen wir uns das vorher gemeinsam an', ende:{was:'Großer Shop', preis:null, dauer:'nach Durchsicht', text:'Das rechne ich Ihnen nach einem kurzen Blick in Ihr Sortiment aus.'}}
+        ]
+      },
+      problem: {
+        frage: 'Was genau stimmt nicht?',
+        optionen: [
+          {text:'Der Browser zeigt eine Sicherheitswarnung', zusatz:'Rote Seite, bevor die Website erscheint',   ende:{was:'Sicherheitswarnung beseitigen', preis:80, dauer:'meist am selben Tag'}},
+          {text:'Auf dem Handy verrutscht alles',            zusatz:'Am Computer sieht es richtig aus',          ende:{was:'Darstellung am Handy in Ordnung bringen', preis:149, dauer:'3 Werktage'}},
+          {text:'Im Shop fehlen Bilder oder Texte',          zusatz:'Platzhalter aus der Vorlage stehen noch drin', ende:{was:'Shop aufräumen', preis:149, dauer:'3 Werktage'}},
+          {text:'Etwas anderes',                             zusatz:'Wir schauen gemeinsam drauf',               ende:{was:'Beratung, 60 Minuten', preis:59, dauer:'Termin meist in der laufenden Woche'}}
+        ]
+      },
+      betreuung: {
+        frage: 'Soll ich mich danach weiter darum kümmern?',
+        optionen: [
+          {text:'Ja, bitte betreuen',   zusatz:'Änderungen, Updates, Erreichbarkeit im Blick — 99 € im Monat, monatlich kündbar', betreuung:true},
+          {text:'Nein, ich übernehme',  zusatz:'Ich bekomme die Zugänge und mache es selbst',                                     betreuung:false}
+        ]
+      }
+    };
+
+    function fortschritt(n){
+      balken.style.width = (n/3*100) + '%';
+      anzeige.textContent = n >= 3 ? 'Ergebnis' : ('Schritt ' + (n+1) + ' von 3');
+    }
+
+    function zeige(name){
+      var s = schritte[name];
+      stand = name;
+      fortschritt(pfad.length);
+      var html = '<h3 class="assi-frage">' + s.frage + '</h3><div class="assi-optionen">';
+      s.optionen.forEach(function(o,i){
+        html += '<button class="assi-opt" data-i="' + i + '">' +
+                '<span class="ziffer">0' + (i+1) + '</span>' +
+                '<span class="text">' + o.text + '<span class="zusatz">' + o.zusatz + '</span></span>' +
+                '<span class="pf">→</span></button>';
+      });
+      html += '</div>';
+      if(pfad.length) html += '<button class="assi-zurueck" data-zurueck="1">← einen Schritt zurück</button>';
+      koerper.innerHTML = html;
+      binde();
+    }
+
+    function zeigeErgebnis(){
+      fortschritt(3);
+      var e = pfad.find(function(x){ return x.ende; }).ende;
+      var mitBetreuung = pfad.some(function(x){ return x.betreuung === true; });
+      var preisText = e.preis === null ? 'Preis nach Durchsicht' : e.preis + ' €';
+
+      var zeilen = '<li><span class="k">Leistung</span><span class="v">' + e.was + '</span></li>' +
+                   '<li><span class="k">Fertig in</span><span class="v">' + e.dauer + '</span></li>';
+      if(mitBetreuung) zeilen += '<li><span class="k">Danach</span><span class="v">99 € im Monat, monatlich kündbar</span></li>';
+      zeilen += '<li><span class="k">Abrechnung</span><span class="v">Festpreis, Rechnung nach Fertigstellung</span></li>';
+
+      var nachricht = 'Hallo Marko, ich komme über Ihre Website. Ich bräuchte: ' + e.was +
+                      (e.preis !== null ? ' (' + e.preis + ' €)' : '') +
+                      (mitBetreuung ? ' — dazu die laufende Betreuung.' : '.') +
+                      ' Mein Betrieb: ';
+
+      koerper.innerHTML =
+        '<div class="assi-ergebnis">' +
+          '<div class="summe"><span class="preis-gross">' + preisText + '</span><span class="fest">Festpreis · keine Stundenabrechnung</span></div>' +
+          (e.text ? '<p class="assi-hinweis">' + e.text + '</p>' : '') +
+          '<ul class="assi-liste">' + zeilen + '</ul>' +
+          '<div class="assi-knoepfe">' +
+            '<a class="knopf voll wa-gruen" target="_blank" rel="noopener" href="https://wa.me/' + WA + '?text=' + encodeURIComponent(nachricht) + '">Per WhatsApp schicken</a>' +
+            '<a class="knopf leer" href="mailto:' + MAIL + '?subject=' + encodeURIComponent('Anfrage: ' + e.was) + '&body=' + encodeURIComponent(nachricht) + '">Per E-Mail schicken</a>' +
+            '<a class="knopf leer" href="tel:' + TEL + '">Anrufen</a>' +
+          '</div>' +
+          '<p class="assi-hinweis">Die Nachricht ist schon vorgeschrieben — Sie ergänzen nur noch den Namen Ihres Betriebs. Ein Auftrag ist das damit nicht, Sie bekommen erst ein schriftliches Angebot.</p>' +
+          '<button class="assi-zurueck" data-neu="1">Von vorn beginnen</button>' +
+        '</div>';
+      binde();
+    }
+
+    function binde(){
+      koerper.querySelectorAll('.assi-opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var o = schritte[stand].optionen[+b.dataset.i];
+          pfad.push(o);
+          if(o.weiter) zeige(o.weiter);
+          else if(o.ende) zeige('betreuung');
+          else zeigeErgebnis();
+        });
+      });
+      var zur = koerper.querySelector('[data-zurueck]');
+      if(zur) zur.addEventListener('click', function(){
+        pfad.pop();
+        var vorher = pfad.length ? pfad[pfad.length-1] : null;
+        if(!vorher) zeige('start');
+        else if(vorher.weiter) zeige(vorher.weiter);
+        else zeige('start');
+      });
+      var neu = koerper.querySelector('[data-neu]');
+      if(neu) neu.addEventListener('click', function(){ pfad = []; zeige('start'); });
+    }
+
+    zeige('start');
+  })();
 
   /* ---- Abschnitte einblenden ---- */
   var ziele = document.querySelectorAll('.auf:not(.hero .auf)');
