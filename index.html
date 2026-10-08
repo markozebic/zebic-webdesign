@@ -323,6 +323,12 @@ h2 em{font-style:italic; font-weight:400; color:var(--akzent)}
 }
 .bahn.langsam .wagen{background:linear-gradient(90deg,#4a4e57,#6b707b)}
 .bahn.fertig .zeit{color:var(--elfenbein); font-weight:600}
+.bahn .faktor{
+  display:inline-block; margin-left:10px; font-size:.78rem; font-weight:600; letter-spacing:.02em;
+  padding:3px 9px; border-radius:99px; background:rgba(242,239,233,.08); color:var(--grau);
+  opacity:0; transform:translateY(3px); transition:opacity .4s ease, transform .4s ease;
+}
+.bahn.fertig .faktor{opacity:1; transform:none}
 .rennen .fussnote{margin:26px 0 0; font-size:.86rem; color:var(--grau)}
 .rennen .nochmal{
   margin-top:18px; background:none; border:1px solid var(--linie); color:var(--elfenbein);
@@ -627,7 +633,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
           <li><span>Lädt <b>2 bis 4 Sekunden</b>, weil jede Vorlage alles mitbringt</span></li>
           <li><span>Sieht aus wie <b>tausend andere</b> Seiten</span></li>
           <li><span>Monatsgebühr <b>dauerhaft</b>, sonst ist die Seite weg</span></li>
-          <li><span>Google bewertet Ladezeit — <b>Sie rutschen ab</b></span></li>
+          <li><span>Google <b>misst die Ladezeit</b> jeder Seite</span></li>
         </ul>
       </div>
       <div class="spalte hervor auf">
@@ -897,7 +903,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     }catch(e){ ms = Math.round(performance.now()); }
     if(!ms || ms < 1) ms = 1;
     el.textContent = ms + ' ms';
-    txt.textContent = 'hat diese Seite gebraucht, bis sie bei Ihnen stand — gemessen in Ihrem Browser, gerade eben. Eine Baukastenseite braucht dafür zwei- bis viertausend Millisekunden. Genau diesen Unterschied bewertet Google.';
+    txt.textContent = 'hat diese Seite gebraucht, bis sie bei Ihnen stand — gemessen in Ihrem Browser, gerade eben. Eine Baukastenseite braucht dafür zwei- bis viertausend Millisekunden. Google misst diesen Wert bei jeder Seite mit.';
   }
   if(document.readyState === 'complete') tempo(); else window.addEventListener('load', tempo);
 
@@ -1068,6 +1074,16 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
           else {
             b.classList.add('fertig');
             anzeige.textContent = echt < 1000 ? echt + ' ms' : (echt/1000).toFixed(2).replace('.', ',') + ' s';
+            var eigen = +document.getElementById('bahn-hier').dataset.dauer;
+            if(echt > eigen * 1.5){
+              var vorhanden = b.querySelector('.faktor');
+              if(!vorhanden){
+                vorhanden = document.createElement('span');
+                vorhanden.className = 'faktor';
+                b.querySelector('.kopf').appendChild(vorhanden);
+              }
+              vorhanden.textContent = Math.round(echt / eigen) + '× langsamer';
+            }
           }
         })(start);
       });
