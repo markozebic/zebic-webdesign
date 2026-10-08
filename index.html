@@ -96,7 +96,29 @@ header nav a:hover::after{right:0}
 .frei{display:flex; align-items:center; gap:8px; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap}
 .frei .led{width:6px; height:6px; border-radius:50%; background:var(--akzent); animation:puls 2.4s infinite}
 @keyframes puls{0%,100%{opacity:1}50%{opacity:.28}}
-@media (max-width:900px){header nav,.frei{display:none}}
+.burger{
+  display:none; width:42px; height:42px; border:1px solid var(--elfenbein); border-radius:50%;
+  background:none; color:inherit; cursor:pointer; padding:0; place-items:center;
+}
+.burger span{display:block; width:16px; height:1.5px; background:currentColor; transition:transform .3s ease, opacity .25s ease}
+.burger span+span{margin-top:4px}
+body.menue-auf .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+body.menue-auf .burger span:nth-child(2){opacity:0}
+body.menue-auf .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+#menue{
+  position:fixed; inset:0; z-index:55; background:var(--schwarz); display:flex; flex-direction:column;
+  justify-content:center; gap:6px; padding:0 clamp(16px,6vw,40px);
+  opacity:0; visibility:hidden; transition:opacity .35s ease, visibility .35s ease;
+}
+body.menue-auf #menue{opacity:1; visibility:visible}
+body.menue-auf{overflow:hidden}
+#menue a{font-size:clamp(1.9rem,8vw,2.8rem); font-weight:600; letter-spacing:-.035em; padding-block:9px; border-bottom:1px solid var(--linie)}
+#menue a:last-of-type{border-bottom:none}
+#menue .fussnote{margin-top:30px; font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; color:var(--grau)}
+@media (max-width:900px){
+  header nav,.frei{display:none}
+  .burger{display:grid}
+}
 
 /* ===== Hero ===== */
 .hero{position:relative; z-index:1; min-height:100svh; display:flex; align-items:center; padding-block:128px 72px}
@@ -256,8 +278,20 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="frei"><span class="led"></span> Freie Kapazität</div>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menue">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div id="menue">
+  <a href="#leistungen">Leistungen</a>
+  <a href="#unterschied">Unterschied</a>
+  <a href="#ablauf">Ablauf</a>
+  <a href="#fragen">Fragen</a>
+  <a href="#kontakt">Kontakt</a>
+  <div class="fussnote">0176 13471238 · Freie Kapazität</div>
+</div>
 
 <main>
 
@@ -480,6 +514,20 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     var teile = document.querySelectorAll('.hero .auf');
     teile.forEach(function(el, i){ setTimeout(function(){ el.classList.add('da'); }, i * 110); });
   }
+
+  /* ---- Menü am Handy ---- */
+  (function(){
+    var knopf = document.getElementById('burger'), menue = document.getElementById('menue');
+    if(!knopf || !menue) return;
+    function schalten(auf){
+      document.body.classList.toggle('menue-auf', auf);
+      knopf.setAttribute('aria-expanded', auf ? 'true' : 'false');
+      knopf.setAttribute('aria-label', auf ? 'Menü schließen' : 'Menü öffnen');
+    }
+    knopf.addEventListener('click', function(){ schalten(!document.body.classList.contains('menue-auf')); });
+    menue.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ schalten(false); }); });
+    addEventListener('keydown', function(e){ if(e.key === 'Escape') schalten(false); });
+  })();
 
   /* ---- Kopfzeile bekommt Hintergrund, sobald gescrollt wird ---- */
   (function(){
