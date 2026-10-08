@@ -11,6 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta name="theme-color" content="#0c0c0d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Zebic Webdesign", "description": "Websites und Shopify-Shops für Betriebe im Westerwald. Festpreis statt Stundenabrechnung.", "url": "https://zebic-webdesign.de/", "telephone": "+4917613471238", "email": "info@zebic-webdesign.de", "founder": {"@type": "Person", "name": "Marko Zebic"}, "address": {"@type": "PostalAddress", "streetAddress": "Dr.-Emde-Straße 17", "postalCode": "57627", "addressLocality": "Hachenburg", "addressRegion": "Rheinland-Pfalz", "addressCountry": "DE"}, "areaServed": [{"@type": "Place", "name": "Westerwaldkreis"}, {"@type": "Place", "name": "Hachenburg"}, {"@type": "Place", "name": "Altenkirchen"}, {"@type": "Place", "name": "Montabaur"}, {"@type": "Place", "name": "Betzdorf"}], "priceRange": "59 € – 649 €", "knowsLanguage": "de", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Leistungen", "itemListElement": [{"@type": "Offer", "name": "Internetseite", "price": "349", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Shopify-Shop", "price": "449", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Shop in Ordnung bringen", "price": "149", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Sicherheitswarnung beseitigen", "price": "80", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Beratung, 60 Minuten", "price": "59", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Laufende Betreuung", "price": "99", "priceCurrency": "EUR"}]}}</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
 <style>
@@ -295,6 +297,29 @@ details p{color:var(--grau); margin:14px 0 0; max-width:46rem}
 .weg .art{font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:var(--grau); align-self:end}
 .weg .ziel{font-size:1.05rem; font-weight:600; letter-spacing:-.01em; word-break:break-word; align-self:start}
 
+/* ===== Wer ich bin ===== */
+.person{display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(28px,5vw,70px); align-items:start}
+.portraet{
+  position:relative; border-radius:20px; overflow:hidden; border:1px solid var(--linie);
+  aspect-ratio:4/5; background:linear-gradient(160deg,#17191e,#0e0f12);
+  display:grid; place-items:center; text-align:center; padding:28px;
+}
+.portraet img{width:100%; height:100%; object-fit:cover; display:block}
+.portraet .platzhalter{color:var(--grau); font-size:.86rem; line-height:1.5; max-width:17rem}
+.portraet .platzhalter .zeichen{
+  display:block; width:54px; height:54px; margin:0 auto 16px; border-radius:50%;
+  border:1px solid var(--linie); display:grid; place-items:center; color:var(--akzent); font-weight:700;
+}
+.person .text p{font-size:clamp(1rem,1.6vw,1.12rem); color:var(--creme); margin:0 0 18px; max-width:38rem}
+.person .text p.leise{color:var(--grau)}
+.person .unterschrift{margin-top:26px; padding-top:22px; border-top:1px solid var(--linie)}
+.person .unterschrift .name{font-weight:600; font-size:1.05rem; letter-spacing:-.01em}
+.person .unterschrift .rolle{font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--grau); margin-top:5px}
+@media (max-width:820px){
+  .person{grid-template-columns:1fr}
+  .portraet{max-width:320px; aspect-ratio:1/1}
+}
+
 /* ===== Anfrage-Assistent ===== */
 .assistent{
   border:1px solid var(--linie); border-radius:22px; overflow:hidden; background:var(--schwarz);
@@ -413,6 +438,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       <a href="#arbeiten">Arbeiten</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#fragen">Fragen</a>
+      <a href="#person">Über mich</a>
       <a href="#rechner">Preis berechnen</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -429,6 +455,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   <a href="#arbeiten">Arbeiten</a>
   <a href="#ablauf">Ablauf</a>
   <a href="#fragen">Fragen</a>
+  <a href="#person">Über mich</a>
   <a href="#rechner">Preis berechnen</a>
   <a href="#kontakt">Kontakt</a>
   <div class="fussnote">+49 176 13471238 · Freie Kapazität</div>
@@ -619,9 +646,34 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   </div>
 </section>
 
+<section id="person">
+  <div class="wrap">
+    <div class="kapitel auf">06 — Wer das macht</div>
+    <div class="person">
+      <div class="portraet auf">
+        <div class="platzhalter">
+          <span class="zeichen">MZ</span>
+          Hier kommt das Foto hin.
+        </div>
+      </div>
+      <div class="text">
+        <h2 class="wortreveal" style="margin-bottom:26px">Sie reden mit dem, der es baut.</h2>
+        <p>Ich bin Marko Zebic, 20 Jahre alt, aus Hachenburg. Tagsüber mache ich eine Ausbildung zum Bankkaufmann, abends und am Wochenende baue ich Websites und Shopify-Shops.</p>
+        <p class="leise">Angefangen habe ich mit meinem eigenen Onlineshop. Dabei habe ich jeden Fehler selbst gemacht, den ich heute bei anderen finde: falsche Versandeinstellungen, Produktseiten, die am Handy brechen, fehlende Pflichtangaben. Deshalb weiß ich, wo man suchen muss.</p>
+        <p class="leise">Bei mir gibt es keinen Vertrieb, der Ihre Anfrage weiterreicht, und keine Hotline. Sie sprechen mit der Person, die danach die Arbeit macht. Das heißt auch: Ich sage Ihnen, wenn Sie etwas nicht brauchen — eine Agentur verkauft Ihnen in dem Fall trotzdem etwas.</p>
+        <p>Dass ich jung bin, können Sie an dieser Seite nachprüfen. Sie lädt in Millisekunden, funktioniert auf jedem Gerät und hat ein vollständiges Impressum. Ich habe sie selbst gebaut — sie ist meine Arbeitsprobe.</p>
+        <div class="unterschrift">
+          <div class="name">Marko Zebic</div>
+          <div class="rolle">Inhaber · Zebic Webdesign</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="rechner">
   <div class="wrap">
-    <div class="kapitel auf">06 — Was es bei Ihnen kostet</div>
+    <div class="kapitel auf">07 — Was es bei Ihnen kostet</div>
     <h2 class="wortreveal">Vier Fragen, dann steht der Preis.</h2>
     <p class="einleitung auf">Kein Formular, keine Mailadresse nötig. Am Ende bekommen Sie eine fertige Nachricht, die Sie mit einem Tipp abschicken können — oder einfach anrufen.</p>
 
@@ -639,7 +691,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
 <section id="kontakt" class="kontakt">
   <div class="wrap">
-    <div class="kapitel auf">07 — Kontakt</div>
+    <div class="kapitel auf">08 — Kontakt</div>
     <p class="riesig wortreveal">Erzählen Sie mir in zwei Sätzen, worum es geht.</p>
     <p class="einleitung auf">Sie bekommen eine ehrliche Einschätzung und einen Festpreis — oder den Hinweis, dass Sie das Geld nicht ausgeben müssen.</p>
     <div class="wege">
