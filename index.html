@@ -211,14 +211,14 @@ h1 em{font-style:italic; font-weight:400; color:var(--akzent)}
 }
 .laufband::before{left:0; background:linear-gradient(90deg,var(--schwarz),transparent)}
 .laufband::after{right:0; background:linear-gradient(270deg,var(--schwarz),transparent)}
-.laufband .spur{display:flex; gap:44px; padding-right:44px; white-space:nowrap; animation:lauf 46s linear infinite; flex:none}
+.laufband .gleis{display:flex; will-change:transform}
+.laufband .spur{display:flex; gap:44px; padding-right:44px; white-space:nowrap; flex:none}
 .laufband span{
   font-size:clamp(1rem,2.2vw,1.5rem); font-weight:500; letter-spacing:-.015em;
   color:rgba(242,239,233,.52);
 }
 .laufband i{font-style:normal; color:var(--akzent); opacity:.75; margin-left:4px}
-@keyframes lauf{to{transform:translateX(-100%)}}
-@media (prefers-reduced-motion:reduce){.laufband .spur{animation:none}}
+
 
 /* ===== Abschnitte ===== */
 section{position:relative; z-index:1; padding-block:clamp(72px,11vw,160px)}
@@ -526,6 +526,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 </section>
 
 <div class="laufband" aria-hidden="true">
+  <div class="gleis">
   <div class="spur">
     <span>Internetseiten <i>/</i></span><span>Shopify-Shops <i>/</i></span><span>Shop aufräumen <i>/</i></span>
     <span>Sicherheitswarnung weg <i>/</i></span><span>Betreuung <i>/</i></span><span>Beratung <i>/</i></span>
@@ -533,6 +534,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   <div class="spur">
     <span>Internetseiten <i>/</i></span><span>Shopify-Shops <i>/</i></span><span>Shop aufräumen <i>/</i></span>
     <span>Sicherheitswarnung weg <i>/</i></span><span>Betreuung <i>/</i></span><span>Beratung <i>/</i></span>
+  </div>
   </div>
 </div>
 
@@ -932,23 +934,36 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     }, {passive:true});
   })();
 
-  /* ---- Laufband folgt der Scrollrichtung ---- */
+  /* ---- Laufband: Position wird selbst gerechnet, damit nichts springt ---- */
   (function(){
     var band = document.querySelector('.laufband');
-    if(!band || reduziert) return;
-    var spuren = band.querySelectorAll('.spur'), letzte = scrollY, ruhe;
+    if(!band) return;
+    var gleis = band.querySelector('.gleis');
+    var erste = band.querySelector('.spur');
+    if(!gleis || !erste) return;
+    if(reduziert) return;
+
+    var x = 0, tempo = 0.45, ziel = 0.45, richtung = 1, letzte = scrollY, ruhe;
+
     addEventListener('scroll', function(){
       var weg = scrollY - letzte; letzte = scrollY;
-      var tempo = Math.min(5, 1 + Math.abs(weg) / 14);
-      spuren.forEach(function(s){
-        s.style.animationDuration = (46 / tempo) + 's';
-        s.style.animationDirection = weg < 0 ? 'reverse' : 'normal';
-      });
+      if(weg !== 0) richtung = weg > 0 ? 1 : -1;
+      ziel = Math.min(4.5, 0.45 + Math.abs(weg) * 0.06);
       clearTimeout(ruhe);
-      ruhe = setTimeout(function(){
-        spuren.forEach(function(s){ s.style.animationDuration = '46s'; });
-      }, 220);
+      ruhe = setTimeout(function(){ ziel = 0.45; richtung = 1; }, 260);
     }, {passive:true});
+
+    (function lauf(){
+      tempo += (ziel - tempo) * 0.07;          /* weich nachziehen, kein Sprung */
+      x -= tempo * richtung;
+      var breite = erste.offsetWidth;
+      if(breite){
+        if(x <= -breite) x += breite;          /* nahtlos umbrechen */
+        else if(x > 0) x -= breite;
+      }
+      gleis.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      requestAnimationFrame(lauf);
+    })();
   })();
 
   /* ---- Preise zählen hoch, sobald sie sichtbar werden ---- */
