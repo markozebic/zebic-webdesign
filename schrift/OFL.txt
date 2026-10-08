@@ -1,0 +1,8 @@
+Instrument Sans — Copyright 2022 The Instrument Sans Project Authors
+(https://github.com/Instrument/instrument-sans)
+
+Lizenziert unter der SIL Open Font License, Version 1.1.
+Volltext: https://openfontlicense.org
+
+Diese Lizenz erlaubt ausdrücklich das Einbinden und Ausliefern der Schrift
+über den eigenen Server.

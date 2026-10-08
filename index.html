@@ -16,9 +16,20 @@
 <link rel="icon" href="favicon-dunkel.png?v=4" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Zebic Webdesign", "description": "Websites und Shopify-Shops für Betriebe im Westerwald. Festpreis statt Stundenabrechnung.", "url": "https://zebic-webdesign.de/", "telephone": "+4917613471238", "email": "info@zebic-webdesign.de", "founder": {"@type": "Person", "name": "Marko Zebic"}, "address": {"@type": "PostalAddress", "streetAddress": "Dr.-Emde-Straße 17", "postalCode": "57627", "addressLocality": "Hachenburg", "addressRegion": "Rheinland-Pfalz", "addressCountry": "DE"}, "areaServed": [{"@type": "Place", "name": "Westerwaldkreis"}, {"@type": "Place", "name": "Hachenburg"}, {"@type": "Place", "name": "Altenkirchen"}, {"@type": "Place", "name": "Montabaur"}, {"@type": "Place", "name": "Betzdorf"}], "priceRange": "59 € – 649 €", "knowsLanguage": "de", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Leistungen", "itemListElement": [{"@type": "Offer", "name": "Internetseite", "price": "349", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Shopify-Shop", "price": "449", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Shop in Ordnung bringen", "price": "149", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Sicherheitswarnung beseitigen", "price": "80", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Beratung, 60 Minuten", "price": "59", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Laufende Betreuung", "price": "99", "priceCurrency": "EUR"}]}}</script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
+<link rel="preload" href="schrift/instrument-sans.woff2?v=1" as="font" type="font/woff2" crossorigin>
 <style>
+/* Schrift liegt auf dem eigenen Server — die Seite lädt nichts von fremden Servern.
+   Instrument Sans, SIL Open Font License 1.1, siehe schrift/OFL.txt */
+@font-face{
+  font-family:"Instrument Sans";
+  src:url("schrift/instrument-sans.woff2?v=1") format("woff2");
+  font-weight:400 700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Instrument Sans";
+  src:url("schrift/instrument-sans-kursiv.woff2?v=1") format("woff2");
+  font-weight:400 700; font-style:italic; font-display:swap;
+}
 :root{
   --schwarz:#0c0c0d;
   --elfenbein:#f2efe9;
@@ -667,6 +678,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
           <li><span>Sieht aus wie <b>tausend andere</b> Seiten</span></li>
           <li><span>Monatsgebühr <b>dauerhaft</b>, sonst ist die Seite weg</span></li>
           <li><span>Google <b>misst die Ladezeit</b> jeder Seite</span></li>
+          <li><span>Lädt Schriften und Skripte <b>von fremden Servern</b> — Cookie-Banner nötig</span></li>
         </ul>
       </div>
       <div class="spalte hervor auf">
@@ -676,6 +688,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
           <li><span>Gehört <b>nur Ihnen</b>, keine Vorlage</span></li>
           <li><span>Einmal zahlen, <b>Hosting kostenlos</b> möglich</span></li>
           <li><span>Zugänge laufen auf <b>Ihren Namen</b></span></li>
+          <li><span>Lädt <b>nichts von fremden Servern</b> — kein Cookie-Banner nötig</span></li>
         </ul>
       </div>
     </div>
@@ -853,7 +866,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
       <h3>Datenschutz</h3>
       <p>Diese Seite setzt keine Cookies und bindet keine Analyse- oder Werbedienste ein. Es werden keine Besucherdaten gespeichert.</p>
-      <p>Die Schriftart wird von Google Fonts geladen. Dabei überträgt Ihr Browser Ihre IP-Adresse an Google. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, berechtigtes Interesse an einer einheitlichen Darstellung.</p>
+      <p>Auch die Schriftart liegt auf dem Server dieser Seite. Es werden keinerlei Inhalte von fremden Servern nachgeladen, Ihre IP-Adresse wird an niemanden weitergegeben.</p>
       <p>Wenn Sie anrufen, schreiben oder eine WhatsApp-Nachricht senden, verwende ich Ihre Angaben ausschließlich zur Beantwortung Ihrer Anfrage und lösche sie, sobald sie nicht mehr gebraucht werden. Sie haben jederzeit das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten sowie ein Beschwerderecht bei der Aufsichtsbehörde.</p>
     </div>
   </div>
