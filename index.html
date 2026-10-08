@@ -90,7 +90,10 @@ header.top.fest{
   background:rgba(12,12,13,.88); backdrop-filter:blur(14px);
   border-bottom-color:var(--linie); padding-block:13px;
 }
-header.top .wrap{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:24px}
+header.top .wrap{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:24px;
+  padding-inline:clamp(20px,5.2vw,78px);
+}
 header.top nav{justify-self:center}
 header.top .frei{justify-self:end}
 @media (max-width:900px){
