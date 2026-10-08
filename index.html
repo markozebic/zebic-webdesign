@@ -125,6 +125,43 @@ body.menue-auf{overflow:hidden}
   .burger{display:grid}
 }
 
+/* ===== Lesefortschritt ===== */
+#fortschritt{
+  position:fixed; top:0; left:0; height:2px; width:0; z-index:80;
+  background:linear-gradient(90deg,var(--akzent),#7ea3ff); pointer-events:none;
+  transition:opacity .3s ease;
+}
+
+/* ===== Hero: Zeilen fahren hinter einer Maske hervor ===== */
+.zeile{display:block; overflow:hidden}
+.zeile > span{
+  display:block; transform:translateY(105%); opacity:0;
+  transition:transform 1.05s cubic-bezier(.16,1,.3,1), opacity .8s ease;
+}
+.hero.an .zeile > span{transform:none; opacity:1}
+.hero.an .zeile:nth-child(2) > span{transition-delay:.09s}
+.hero.an .zeile:nth-child(3) > span{transition-delay:.18s}
+
+/* ===== Magnetische Knöpfe ===== */
+.knopf{will-change:transform}
+.knopf .inhalt{display:inline-flex; align-items:center; gap:11px; pointer-events:none}
+
+/* ===== Leistungszeile: Balken wächst beim Überfahren ===== */
+.leistung{position:relative}
+.leistung::before{
+  content:""; position:absolute; left:0; top:-1px; height:1px; width:0;
+  background:var(--akzent); transition:width .55s cubic-bezier(.16,1,.3,1);
+}
+.leistung:hover::before{width:100%}
+
+/* ===== Zahlen, die hochzählen ===== */
+.zaehlt{font-variant-numeric:tabular-nums}
+
+@media (prefers-reduced-motion:reduce){
+  .zeile > span{transform:none !important; opacity:1 !important}
+  #fortschritt{display:none}
+}
+
 /* ===== Hero ===== */
 .hero{position:relative; z-index:1; min-height:100svh; display:flex; align-items:center; padding-block:128px 72px}
 .wasserzeichen{
@@ -209,6 +246,7 @@ h2 em{font-style:italic; font-weight:400; color:var(--akzent)}
 .leistung h3{font-weight:600; font-size:clamp(1.35rem,3.2vw,2.1rem); letter-spacing:-.03em; margin:0 0 10px}
 .leistung p{margin:0; color:var(--grau); max-width:44rem; font-size:1rem}
 .leistung .wert{text-align:right; white-space:nowrap}
+.leistung .zahl i{font-style:normal}
 .leistung .zahl{font-size:clamp(1.3rem,2.6vw,1.9rem); font-weight:600; letter-spacing:-.03em; display:block}
 .leistung .dauer{font-size:.78rem; color:var(--grau); letter-spacing:.04em}
 @media (max-width:760px){
@@ -425,6 +463,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   <div id="laderwort">Zebic Webdesign</div>
 </div>
 
+<div id="fortschritt"></div>
 <div id="punkt"></div>
 <div class="gitternetz"></div>
 
@@ -462,7 +501,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 <section class="hero">
   <div class="wasserzeichen" aria-hidden="true"><img src="bilder/zeichen.png?v=2" alt="" width="240" height="160"></div>
   <div class="wrap">
-    <h1 class="auf">Websites, die<br>gefunden werden.<br><em>Von Hand gebaut.</em></h1>
+    <h1><span class="zeile"><span>Websites, die</span></span><span class="zeile"><span>gefunden werden.</span></span><span class="zeile"><span><em>Von Hand gebaut.</em></span></span></h1>
     <p class="vorspann auf">
       Ich baue Internetseiten und Shopify-Shops für Betriebe im Westerwald.
       Kein Baukasten, keine Vorlage von der Stange. Festpreis vorher, fertig in Tagen.
@@ -505,37 +544,37 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <div class="leistung auf">
       <span class="nr">01</span>
       <div><h3>Internetseite</h3><p>Eine Seite, die auf dem Handy funktioniert, bei Google gefunden wird und in drei Sekunden sagt, was Sie anbieten. Mit Impressum und Datenschutz, rechtlich sauber.</p></div>
-      <div class="wert"><span class="zahl">ab 349 €</span><span class="dauer">5 Werktage</span></div>
+      <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="349">0</i> €</span><span class="dauer">5 Werktage</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">02</span>
       <div><h3>Onlineshop</h3><p>Kompletter Shopify-Shop: Theme, Startseite, Produktseiten, Navigation, Versand- und Zahlungseinstellungen, Ihre Rechtstexte eingebunden. Danach können Sie verkaufen.</p></div>
-      <div class="wert"><span class="zahl">ab 449 €</span><span class="dauer">7 Werktage</span></div>
+      <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="449">0</i> €</span><span class="dauer">7 Werktage</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">03</span>
       <div><h3>Shop in Ordnung bringen</h3><p>Ihr Shop bricht auf dem Handy, zeigt falsche Versandkosten oder Platzhaltertexte aus der Vorlage. Ich gehe ihn durch und räume auf.</p></div>
-      <div class="wert"><span class="zahl">149 €</span><span class="dauer">3 Werktage</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="149">0</i> €</span><span class="dauer">3 Werktage</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">04</span>
       <div><h3>Sicherheitswarnung beseitigen</h3><p>Der Browser sperrt Ihre Seite mit einer roten Warnung, bevor sie überhaupt erscheint. Meist ein abgelaufenes Zertifikat — und jeder Besucher dreht vorher um.</p></div>
-      <div class="wert"><span class="zahl">80 €</span><span class="dauer">meist am selben Tag</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="80">0</i> €</span><span class="dauer">meist am selben Tag</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">05</span>
       <div><h3>Beratung</h3><p>Wenn Sie keinen Auftrag wollen, sondern nur eine Einschätzung: sechzig Minuten am Telefon oder per Videoanruf. Wir gehen Ihre Seite gemeinsam durch, danach wissen Sie, was zu tun ist. Eine Anfrage mit Festpreis bleibt davon unberührt und kostet nichts.</p></div>
-      <div class="wert"><span class="zahl">59 €</span><span class="dauer">60 Minuten</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="59">0</i> €</span><span class="dauer">60 Minuten</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">06</span>
       <div><h3>Laufende Betreuung</h3><p>Produkte einpflegen, Texte ändern, Updates, Erreichbarkeit im Blick. Damit die Seite nicht nach einem Jahr aussieht wie von vorgestern.</p></div>
-      <div class="wert"><span class="zahl">99 € / Monat</span><span class="dauer">monatlich kündbar</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="99">0</i> € / Monat</span><span class="dauer">monatlich kündbar</span></div>
     </div>
   </div>
 </section>
@@ -760,8 +799,10 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
   /* ---- Hero einblenden, erst wenn der Ladeschirm weg ist ---- */
   function starteHero(){
+    var hero = document.querySelector('.hero');
+    if(hero) hero.classList.add('an');
     var teile = document.querySelectorAll('.hero .auf');
-    teile.forEach(function(el, i){ setTimeout(function(){ el.classList.add('da'); }, i * 110); });
+    teile.forEach(function(el, i){ setTimeout(function(){ el.classList.add('da'); }, 240 + i * 110); });
   }
 
   /* ---- Menü am Handy ---- */
@@ -861,6 +902,95 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   } else {
     document.querySelectorAll('.wortreveal span').forEach(function(s){ s.classList.add('hell'); });
   }
+
+  /* ---- Lesefortschritt oben ---- */
+  (function(){
+    var balken = document.getElementById('fortschritt');
+    if(!balken || reduziert) return;
+    function zeichne(){
+      var h = document.documentElement.scrollHeight - innerHeight;
+      balken.style.width = (h > 0 ? Math.min(100, scrollY / h * 100) : 0) + '%';
+    }
+    addEventListener('scroll', function(){ requestAnimationFrame(zeichne); }, {passive:true});
+    addEventListener('resize', zeichne, {passive:true});
+    zeichne();
+  })();
+
+  /* ---- Wasserzeichen bewegt sich langsamer als die Seite ---- */
+  (function(){
+    var zeichen = document.querySelector('.wasserzeichen');
+    if(!zeichen || reduziert) return;
+    var laeuft = false;
+    function schiebe(){
+      laeuft = false;
+      if(scrollY > innerHeight * 1.4) return;
+      zeichen.style.transform = 'translateY(calc(-50% + ' + (scrollY * 0.16) + 'px))';
+    }
+    addEventListener('scroll', function(){
+      if(!laeuft){ laeuft = true; requestAnimationFrame(schiebe); }
+    }, {passive:true});
+  })();
+
+  /* ---- Laufband folgt der Scrollrichtung ---- */
+  (function(){
+    var band = document.querySelector('.laufband');
+    if(!band || reduziert) return;
+    var spuren = band.querySelectorAll('.spur'), letzte = scrollY, ruhe;
+    addEventListener('scroll', function(){
+      var weg = scrollY - letzte; letzte = scrollY;
+      var tempo = Math.min(5, 1 + Math.abs(weg) / 14);
+      spuren.forEach(function(s){
+        s.style.animationDuration = (46 / tempo) + 's';
+        s.style.animationDirection = weg < 0 ? 'reverse' : 'normal';
+      });
+      clearTimeout(ruhe);
+      ruhe = setTimeout(function(){
+        spuren.forEach(function(s){ s.style.animationDuration = '46s'; });
+      }, 220);
+    }, {passive:true});
+  })();
+
+  /* ---- Preise zählen hoch, sobald sie sichtbar werden ---- */
+  (function(){
+    var zahlen = document.querySelectorAll('.zaehlt');
+    if(!zahlen.length) return;
+    if(reduziert || !('IntersectionObserver' in window)){
+      zahlen.forEach(function(z){ z.textContent = z.dataset.ziel; });
+      return;
+    }
+    var beo = new IntersectionObserver(function(eintraege){
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        beo.unobserve(e.target);
+        var z = e.target, ziel = +z.dataset.ziel, start = performance.now(), dauer = 900;
+        (function lauf(jetzt){
+          var p = Math.min(1, (jetzt - start) / dauer);
+          var weich = 1 - Math.pow(1 - p, 3);
+          z.textContent = Math.round(ziel * weich);
+          if(p < 1) requestAnimationFrame(lauf);
+        })(start);
+      });
+    }, {threshold:0.5});
+    zahlen.forEach(function(z){ beo.observe(z); });
+  })();
+
+  /* ---- Knöpfe ziehen zum Zeiger ---- */
+  (function(){
+    if(reduziert || !matchMedia('(hover:hover)').matches) return;
+    document.querySelectorAll('.knopf').forEach(function(k){
+      k.addEventListener('mousemove', function(e){
+        var r = k.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width/2) * 0.22;
+        var y = (e.clientY - r.top - r.height/2) * 0.3;
+        k.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      k.addEventListener('mouseleave', function(){
+        k.style.transition = 'transform .45s cubic-bezier(.16,1,.3,1)';
+        k.style.transform = '';
+        setTimeout(function(){ k.style.transition = ''; }, 460);
+      });
+    });
+  })();
 
   /* ---- Feste Aktionsleiste: erscheint nach dem ersten Bildschirm ---- */
   (function(){
