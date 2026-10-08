@@ -400,7 +400,9 @@ body.menue-auf #leiste{transform:translateY(102%)}
 
 /* ===== Fuß ===== */
 footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-block:50px calc(60px + 74px); font-size:.88rem; color:var(--grau)}
-.fussreihe{display:flex; flex-wrap:wrap; gap:16px 36px; justify-content:space-between; align-items:baseline}
+.fussreihe{display:flex; flex-wrap:wrap; gap:20px 36px; justify-content:space-between; align-items:center}
+.fusslogo{height:96px; width:auto; opacity:.9; display:block}
+@media (max-width:620px){.fusslogo{height:76px}}
 .recht{margin-top:44px; padding-top:34px; border-top:1px solid var(--linie); max-width:50rem}
 .recht h3{color:var(--elfenbein); font-size:1rem; font-weight:600; margin:24px 0 8px; letter-spacing:-.01em}
 .recht h3:first-child{margin-top:0}
@@ -707,10 +709,10 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
 <footer>
   <div class="wrap">
-    <div class="fussreihe">
-      <span style="display:flex; align-items:center; gap:14px"><img src="bilder/logo-voll.png?v=2" alt="Zebic Webdesign" width="600" height="360" loading="lazy" style="height:46px; width:auto; opacity:.8">© 2026 Marko Zebic</span>
-      <span>Hachenburg · Westerwald</span>
-    </div>
+          <div class="fussreihe">
+        <img class="fusslogo" src="bilder/logo-voll.png?v=2" alt="Zebic Webdesign" width="540" height="360" loading="lazy">
+        <span>© 2026 Marko Zebic · Dr.-Emde-Straße 17, 57627 Hachenburg</span>
+      </div>
 
     <div class="recht" id="impressum">
       <h3>Impressum — Angaben gemäß § 5 DDG</h3>
