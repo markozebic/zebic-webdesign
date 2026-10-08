@@ -133,7 +133,8 @@ body.menue-auf{overflow:hidden}
 }
 
 /* ===== Hero: Zeilen fahren hinter einer Maske hervor ===== */
-.zeile{display:block; overflow:hidden}
+.zeile{display:block; overflow:hidden; padding-block:.1em .06em; margin-block:-.1em -.06em}
+.zeile:last-child{padding-bottom:.14em; margin-bottom:-.14em}
 .zeile > span{
   display:block; transform:translateY(105%); opacity:0;
   transition:transform 1.05s cubic-bezier(.16,1,.3,1), opacity .8s ease;
