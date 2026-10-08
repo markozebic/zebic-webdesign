@@ -75,7 +75,14 @@ a{color:inherit; text-decoration:none}
 }
 
 /* ===== Kopf ===== */
-header.top{position:fixed; top:0; left:0; right:0; z-index:60; padding-block:20px; mix-blend-mode:difference}
+header.top{
+  position:fixed; top:0; left:0; right:0; z-index:60; padding-block:20px;
+  mix-blend-mode:difference; transition:background .3s ease, padding .3s ease, mix-blend-mode 0s;
+}
+header.top.fest{
+  mix-blend-mode:normal; background:rgba(12,12,13,.86); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--linie); padding-block:13px;
+}
 header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px}
 .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem}
 .logo .mark{
@@ -473,6 +480,15 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     var teile = document.querySelectorAll('.hero .auf');
     teile.forEach(function(el, i){ setTimeout(function(){ el.classList.add('da'); }, i * 110); });
   }
+
+  /* ---- Kopfzeile bekommt Hintergrund, sobald gescrollt wird ---- */
+  (function(){
+    var kopf = document.querySelector('header.top');
+    if(!kopf) return;
+    function pruefe(){ kopf.classList.toggle('fest', scrollY > 60); }
+    addEventListener('scroll', pruefe, {passive:true});
+    pruefe();
+  })();
 
   /* ---- Ladezeit messen ---- */
   function tempo(){
