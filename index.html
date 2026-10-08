@@ -88,16 +88,16 @@ header.top.fest{
   border-bottom-color:var(--linie); padding-block:13px;
 }
 header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px}
-.logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem}
+.logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem; white-space:nowrap; flex:none}
 .logo .mark{
   width:26px; height:26px; border:1.5px solid var(--elfenbein); border-radius:4px;
   display:grid; place-items:center; font-size:.62rem; font-weight:700; letter-spacing:0;
 }
-header nav{display:flex; gap:clamp(16px,2.4vw,34px); font-size:.7rem; letter-spacing:.22em; text-transform:uppercase}
+header nav{display:flex; gap:clamp(14px,2vw,30px); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; white-space:nowrap}
 header nav a{position:relative; padding-block:4px}
 header nav a::after{content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:currentColor; transition:right .3s ease}
 header nav a:hover::after{right:0}
-.frei{display:flex; align-items:center; gap:8px; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap}
+.frei{display:flex; align-items:center; gap:8px; font-size:.68rem; flex:none; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap}
 .frei .led{width:6px; height:6px; border-radius:50%; background:var(--akzent); animation:puls 2.4s infinite}
 @keyframes puls{0%,100%{opacity:1}50%{opacity:.28}}
 .burger{
@@ -434,12 +434,9 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <a href="#" class="logo"><span class="mark">MZ</span> Zebic Webdesign</a>
     <nav>
       <a href="#leistungen">Leistungen</a>
-      <a href="#unterschied">Unterschied</a>
       <a href="#arbeiten">Arbeiten</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#fragen">Fragen</a>
       <a href="#person">Über mich</a>
-      <a href="#rechner">Preis berechnen</a>
+      <a href="#rechner">Preis</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="frei"><span class="led"></span> Freie Kapazität</div>
