@@ -90,7 +90,12 @@ header.top.fest{
   background:rgba(12,12,13,.88); backdrop-filter:blur(14px);
   border-bottom-color:var(--linie); padding-block:13px;
 }
-header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px}
+header.top .wrap{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:24px}
+header.top nav{justify-self:center}
+header.top .frei{justify-self:end}
+@media (max-width:900px){
+  header.top .wrap{display:flex; justify-content:space-between; gap:20px}
+}
 .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem; white-space:nowrap; flex:none}
 .logo{gap:15px}
 .logo .mark{height:40px; width:auto; display:block}
