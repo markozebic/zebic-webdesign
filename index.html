@@ -11,7 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta name="theme-color" content="#0c0c0d">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Zebic Webdesign", "description": "Websites und Shopify-Shops für Betriebe im Westerwald. Festpreis statt Stundenabrechnung.", "url": "https://zebic-webdesign.de/", "telephone": "+4917613471238", "email": "info@zebic-webdesign.de", "founder": {"@type": "Person", "name": "Marko Zebic"}, "address": {"@type": "PostalAddress", "streetAddress": "Dr.-Emde-Straße 17", "postalCode": "57627", "addressLocality": "Hachenburg", "addressRegion": "Rheinland-Pfalz", "addressCountry": "DE"}, "areaServed": [{"@type": "Place", "name": "Westerwaldkreis"}, {"@type": "Place", "name": "Hachenburg"}, {"@type": "Place", "name": "Altenkirchen"}, {"@type": "Place", "name": "Montabaur"}, {"@type": "Place", "name": "Betzdorf"}], "priceRange": "59 € – 649 €", "knowsLanguage": "de", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Leistungen", "itemListElement": [{"@type": "Offer", "name": "Internetseite", "price": "349", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Shopify-Shop", "price": "449", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Shop in Ordnung bringen", "price": "149", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Sicherheitswarnung beseitigen", "price": "80", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Beratung, 60 Minuten", "price": "59", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Laufende Betreuung", "price": "99", "priceCurrency": "EUR"}]}}</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
@@ -89,10 +90,8 @@ header.top.fest{
 }
 header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px}
 .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem; white-space:nowrap; flex:none}
-.logo .mark{
-  width:26px; height:26px; border:1.5px solid var(--elfenbein); border-radius:4px;
-  display:grid; place-items:center; font-size:.62rem; font-weight:700; letter-spacing:0;
-}
+.logo .mark{height:25px; width:auto; display:block}
+.logo .wort{font-weight:700; letter-spacing:-.02em}
 header nav{display:flex; gap:clamp(14px,2vw,30px); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; white-space:nowrap}
 header nav a{position:relative; padding-block:4px}
 header nav a::after{content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:currentColor; transition:right .3s ease}
@@ -127,11 +126,11 @@ body.menue-auf{overflow:hidden}
 /* ===== Hero ===== */
 .hero{position:relative; z-index:1; min-height:100svh; display:flex; align-items:center; padding-block:128px 72px}
 .wasserzeichen{
-  position:absolute; left:50%; top:52%; transform:translate(-50%,-50%);
-  font-size:min(30vw,340px); font-weight:700; letter-spacing:-.06em; line-height:1;
-  color:transparent; -webkit-text-stroke:1px rgba(242,239,233,.07); white-space:nowrap;
-  pointer-events:none; user-select:none; z-index:-1;
+  position:absolute; right:-2%; top:50%; transform:translateY(-50%);
+  width:min(46vw,620px); opacity:.045; pointer-events:none; user-select:none; z-index:-1;
 }
+.wasserzeichen img{width:100%; height:auto; display:block}
+@media (max-width:820px){.wasserzeichen{width:78vw; right:-16%; opacity:.035}}
 .marke-klein{font-size:.68rem; letter-spacing:.3em; text-transform:uppercase; color:var(--grau); margin-bottom:28px}
 h1{
   font-weight:600; letter-spacing:-.045em; line-height:.93; margin:0 0 34px;
@@ -306,10 +305,7 @@ details p{color:var(--grau); margin:14px 0 0; max-width:46rem}
 }
 .portraet img{width:100%; height:100%; object-fit:cover; display:block}
 .portraet .platzhalter{color:var(--grau); font-size:.86rem; line-height:1.5; max-width:17rem}
-.portraet .platzhalter .zeichen{
-  display:block; width:54px; height:54px; margin:0 auto 16px; border-radius:50%;
-  border:1px solid var(--linie); display:grid; place-items:center; color:var(--akzent); font-weight:700;
-}
+.portraet .platzhalter img{width:62px; height:auto; display:block; margin:0 auto 18px; opacity:.5}
 .person .text p{font-size:clamp(1rem,1.6vw,1.12rem); color:var(--creme); margin:0 0 18px; max-width:38rem}
 .person .text p.leise{color:var(--grau)}
 .person .unterschrift{margin-top:26px; padding-top:22px; border-top:1px solid var(--linie)}
@@ -431,7 +427,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
 <header class="top">
   <div class="wrap">
-    <a href="#" class="logo"><span class="mark">MZ</span> Zebic Webdesign</a>
+    <a href="#" class="logo" aria-label="Zebic Webdesign, zum Seitenanfang"><img class="mark" src="bilder/zeichen.png" alt="" width="240" height="160"><span class="wort">Zebic Webdesign</span></a>
     <nav>
       <a href="#leistungen">Leistungen</a>
       <a href="#arbeiten">Arbeiten</a>
@@ -461,7 +457,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 <main>
 
 <section class="hero">
-  <div class="wasserzeichen" aria-hidden="true">ZEBIC</div>
+  <div class="wasserzeichen" aria-hidden="true"><img src="bilder/zeichen.png" alt="" width="240" height="160"></div>
   <div class="wrap">
     <div class="marke-klein auf">Hachenburg · Westerwald</div>
     <h1 class="auf">Websites, die<br>gefunden werden.<br><em>Von Hand gebaut.</em></h1>
@@ -649,7 +645,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <div class="person">
       <div class="portraet auf">
         <div class="platzhalter">
-          <span class="zeichen">MZ</span>
+          <img src="bilder/zeichen.png" alt="" width="240" height="160">
           Hier kommt das Foto hin.
         </div>
       </div>
@@ -710,7 +706,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 <footer>
   <div class="wrap">
     <div class="fussreihe">
-      <span>© 2026 Marko Zebic · Zebic Webdesign</span>
+      <span style="display:flex; align-items:center; gap:14px"><img src="bilder/logo-voll.png" alt="Zebic Webdesign" width="600" height="360" loading="lazy" style="height:46px; width:auto; opacity:.8">© 2026 Marko Zebic</span>
       <span>Hachenburg · Westerwald</span>
     </div>
 
