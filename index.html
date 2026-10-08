@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Webdesign Westerwald – Websites und Onlineshops | Zebic Webdesign</title>
+<meta name="description" content="Websites und Shopify-Shops für Betriebe im Westerwald. Festpreis statt Stundenzettel, fertig in Tagen. Marko Zebic, Hachenburg.">
+<link rel="canonical" href="https://zebic-webdesign.de/">
+<meta property="og:title" content="Webdesign Westerwald – Websites und Onlineshops">
+<meta property="og:description" content="Websites und Shopify-Shops für Betriebe im Westerwald. Festpreis statt Stundenzettel.">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0b0c0e; --bg-2:#131519; --linie:#24272e;
+  --text:#f2f3f5; --leise:#9aa1ad;
+  --akzent:#c8f24a; --akzent-text:#0b0c0e;
+  --display:"Bricolage Grotesque",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#fcfcfb; --bg-2:#f3f3f1; --linie:#e2e2de;
+    --text:#0f1114; --leise:#60656f;
+    --akzent:#1e2024; --akzent-text:#ffffff;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#fcfcfb; --bg-2:#f3f3f1; --linie:#e2e2de;
+  --text:#0f1114; --leise:#60656f;
+  --akzent:#1e2024; --akzent-text:#ffffff;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:72rem; margin:0 auto; padding-inline:16px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--akzent); outline-offset:3px; border-radius:3px}
+
+/* ---- Kopfzeile ---- */
+.top{
+  position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--linie);
+}
+.top .wrap{display:flex; align-items:center; justify-content:space-between; height:62px; gap:16px}
+.marke{font-family:var(--display); font-weight:800; font-size:1.05rem; letter-spacing:-.02em; text-decoration:none}
+.marke span{color:var(--leise); font-weight:500}
+.top nav{display:flex; gap:22px; font-size:.92rem}
+.top nav a{color:var(--leise); text-decoration:none}
+.top nav a:hover{color:var(--text)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* ---- Hero ---- */
+.hero{padding-block:clamp(56px,11vw,120px) clamp(40px,7vw,72px)}
+.ort{
+  display:inline-flex; align-items:center; gap:9px; font-size:.82rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--leise); margin-bottom:26px;
+}
+.punkt{width:7px; height:7px; border-radius:50%; background:var(--akzent); flex:none}
+h1{
+  font-family:var(--display); font-weight:700; letter-spacing:-.035em;
+  font-size:clamp(2.6rem,8.5vw,6rem); line-height:.98; margin:0 0 26px; text-wrap:balance;
+}
+h1 .hell{color:var(--leise)}
+.vorspann{font-size:clamp(1.05rem,2.3vw,1.3rem); color:var(--leise); max-width:40rem; margin:0 0 36px}
+.knopfreihe{display:flex; flex-wrap:wrap; gap:12px}
+.knopf{
+  display:inline-flex; align-items:center; gap:9px; padding:14px 24px; border-radius:100px;
+  font-weight:600; font-size:1rem; text-decoration:none; border:1px solid transparent;
+  transition:transform .15s ease, opacity .15s ease;
+}
+.knopf:active{transform:translateY(1px)}
+.knopf.voll{background:var(--akzent); color:var(--akzent-text)}
+.knopf.voll:hover{opacity:.88}
+.knopf.leer{border-color:var(--linie); color:var(--text)}
+.knopf.leer:hover{border-color:var(--text)}
+
+/* ---- Tempo-Beleg ---- */
+.tempo{
+  margin-top:48px; border:1px solid var(--linie); border-radius:16px; background:var(--bg-2);
+  padding:22px 24px; display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 18px;
+}
+.tempo .zahl{font-family:var(--display); font-weight:800; font-size:clamp(1.8rem,5vw,2.6rem); letter-spacing:-.03em; color:var(--akzent)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .tempo .zahl{color:var(--text)}}
+:root[data-theme="light"] .tempo .zahl{color:var(--text)}
+.tempo .erklaerung{color:var(--leise); font-size:.96rem; max-width:34rem}
+
+/* ---- Abschnitte ---- */
+section{padding-block:clamp(48px,8vw,88px); border-top:1px solid var(--linie)}
+h2{
+  font-family:var(--display); font-weight:700; letter-spacing:-.03em;
+  font-size:clamp(1.8rem,4.4vw,2.9rem); line-height:1.06; margin:0 0 14px; text-wrap:balance;
+}
+.untertitel{color:var(--leise); max-width:38rem; margin:0 0 40px; font-size:1.04rem}
+
+/* ---- Leistungen ---- */
+.gitter{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.karte{
+  border:1px solid var(--linie); border-radius:16px; padding:26px 24px 24px; background:var(--bg-2);
+  transition:border-color .18s ease, transform .18s ease;
+}
+.karte:hover{border-color:color-mix(in srgb, var(--akzent) 55%, var(--linie)); transform:translateY(-2px)}
+.karte h3{font-family:var(--display); font-weight:700; font-size:1.3rem; letter-spacing:-.02em; margin:0 0 10px}
+.karte p{margin:0 0 16px; color:var(--leise); font-size:.98rem}
+.preis{font-family:var(--display); font-weight:800; font-size:1.5rem; letter-spacing:-.02em}
+.preis small{font-family:var(--body); font-weight:500; font-size:.84rem; color:var(--leise); letter-spacing:0}
+
+/* ---- Ablauf ---- */
+ol.schritte{list-style:none; counter-reset:s; margin:0; padding:0; display:grid; gap:2px}
+ol.schritte li{
+  counter-increment:s; display:grid; grid-template-columns:auto 1fr; gap:20px;
+  padding:22px 0; border-bottom:1px solid var(--linie);
+}
+ol.schritte li:first-child{border-top:1px solid var(--linie)}
+ol.schritte li::before{
+  content:counter(s,decimal-leading-zero); font-family:var(--display); font-weight:800;
+  font-size:1rem; color:var(--akzent); padding-top:3px;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) ol.schritte li::before{color:var(--leise)}}
+:root[data-theme="light"] ol.schritte li::before{color:var(--leise)}
+ol.schritte h3{font-family:var(--display); font-weight:700; font-size:1.18rem; margin:0 0 5px; letter-spacing:-.01em}
+ol.schritte p{margin:0; color:var(--leise); font-size:.98rem}
+
+/* ---- Haltung ---- */
+.saetze{display:grid; gap:0}
+.satz{padding:24px 0; border-bottom:1px solid var(--linie); display:grid; grid-template-columns:minmax(0,13rem) 1fr; gap:10px 32px}
+.satz:first-child{border-top:1px solid var(--linie)}
+.satz dt{font-family:var(--display); font-weight:700; font-size:1.1rem; letter-spacing:-.01em}
+.satz dd{margin:0; color:var(--leise)}
+@media (max-width:640px){.satz{grid-template-columns:1fr}}
+
+/* ---- Kontakt ---- */
+.kontakt{background:var(--bg-2); border:1px solid var(--linie); border-radius:22px; padding:clamp(28px,5vw,52px)}
+.kontaktzeilen{display:grid; gap:14px; margin:28px 0 0; padding:0; list-style:none}
+.kontaktzeilen a{font-weight:600; text-decoration:none; border-bottom:2px solid color-mix(in srgb, var(--akzent) 60%, transparent); padding-bottom:1px}
+.kontaktzeilen a:hover{border-bottom-color:var(--akzent)}
+.kontaktzeilen .label{display:block; font-size:.8rem; letter-spacing:.09em; text-transform:uppercase; color:var(--leise); margin-bottom:3px}
+
+/* ---- Fuß ---- */
+footer{border-top:1px solid var(--linie); padding-block:36px 56px; color:var(--leise); font-size:.9rem}
+footer .wrap{display:flex; flex-wrap:wrap; gap:14px 28px; justify-content:space-between}
+footer a{text-decoration:none}
+footer a:hover{color:var(--text)}
+.rechtstext{max-width:44rem}
+.rechtstext h3{font-family:var(--display); font-size:1.05rem; color:var(--text); margin:26px 0 8px}
+.rechtstext p{margin:0 0 10px}
+
+/* ---- Einblenden ---- */
+.auf{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+.auf.da{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  .auf{opacity:1; transform:none; transition:none}
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marke" href="#">Zebic <span>Webdesign</span></a>
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#haltung">Arbeitsweise</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap hero">
+  <div class="ort"><span class="punkt"></span> Hachenburg · Westerwald</div>
+  <h1>Websites für Betriebe,<br><span class="hell">die Kunden suchen.</span></h1>
+  <p class="vorspann">
+    Ich baue Internetseiten und Shopify-Shops für kleine Betriebe im Westerwald.
+    Von Hand geschrieben, kein Baukasten. Festpreis vorher, fertig in Tagen.
+  </p>
+  <div class="knopfreihe">
+    <a class="knopf voll" href="#kontakt">Projekt anfragen</a>
+    <a class="knopf leer" href="tel:+4917613471238">0176 13471238</a>
+  </div>
+
+  <div class="tempo">
+    <span class="zahl" id="tempo-zahl">–</span>
+    <span class="erklaerung" id="tempo-text">Ladezeit dieser Seite wird gemessen …</span>
+  </div>
+</div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <h2 class="auf">Was ich mache</h2>
+    <p class="untertitel auf">Festpreis statt Stundenzettel. Sie wissen vorher, was es kostet und wann es fertig ist.</p>
+    <div class="gitter">
+      <article class="karte auf">
+        <h3>Internetseite</h3>
+        <p>Eine Seite, die auf dem Handy funktioniert, bei Google gefunden wird und sagt, was Sie anbieten. Mit Impressum und Datenschutz.</p>
+        <div class="preis">ab 349 €<br><small>fertig in 5 Werktagen</small></div>
+      </article>
+      <article class="karte auf">
+        <h3>Onlineshop</h3>
+        <p>Kompletter Shopify-Shop: Theme, Startseite, Produktseiten, Versand- und Zahlungseinstellungen, Ihre Rechtstexte eingebunden.</p>
+        <div class="preis">ab 449 €<br><small>fertig in 7 Werktagen</small></div>
+      </article>
+      <article class="karte auf">
+        <h3>Shop in Ordnung bringen</h3>
+        <p>Bestehender Shop, der auf dem Handy bricht, falsche Versandkosten zeigt oder Platzhaltertexte stehen hat. Ich sehe ihn durch und räume auf.</p>
+        <div class="preis">149 €<br><small>fertig in 3 Werktagen</small></div>
+      </article>
+      <article class="karte auf">
+        <h3>Sicherheitswarnung weg</h3>
+        <p>Der Browser sperrt Ihre Seite mit einer roten Warnung, bevor sie überhaupt erscheint. Meist ein abgelaufenes Zertifikat — oft am selben Tag erledigt.</p>
+        <div class="preis">80 €<br><small>meist am selben Tag</small></div>
+      </article>
+      <article class="karte auf">
+        <h3>Beratung, 60 Minuten</h3>
+        <p>Wir schauen gemeinsam auf Ihre Seite oder Ihren Shop, am Telefon oder per Videoanruf. Danach wissen Sie, was zu tun ist — und ob Sie mich dafür brauchen.</p>
+        <div class="preis">59 €<br><small>gilt für den Block von 60 Minuten</small></div>
+      </article>
+      <article class="karte auf">
+        <h3>Betreuung</h3>
+        <p>Laufend: Produkte einpflegen, Texte ändern, Updates. Damit die Seite nicht nach einem Jahr aussieht wie von vorgestern.</p>
+        <div class="preis">99 € / Monat<br><small>monatlich kündbar</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="wrap">
+    <h2 class="auf">Wie es abläuft</h2>
+    <p class="untertitel auf">Vier Schritte, keine Überraschungen.</p>
+    <ol class="schritte">
+      <li class="auf"><div><h3>Sie melden sich</h3><p>Anruf oder Mail. Sie sagen, worum es geht — ich sage Ihnen, ob ich der Richtige bin. Wenn nicht, sage ich das auch.</p></div></li>
+      <li class="auf"><div><h3>Festpreis schriftlich</h3><p>Sie bekommen vorher aufgelistet, was ich mache, was es kostet und wann es fertig ist. Erst danach fange ich an.</p></div></li>
+      <li class="auf"><div><h3>Ich baue</h3><p>Zwischendurch bekommen Sie einen Link zum Anschauen. Änderungswünsche gehören dazu, nicht auf die Rechnung.</p></div></li>
+      <li class="auf"><div><h3>Online und Ihnen übergeben</h3><p>Die Seite läuft auf Ihren Zugängen, nicht auf meinen. Sie kommen jederzeit dran, auch ohne mich.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="haltung">
+  <div class="wrap">
+    <h2 class="auf">Wie ich arbeite</h2>
+    <p class="untertitel auf">Vier Sachen, die ich anders mache als die meisten.</p>
+    <dl class="saetze">
+      <div class="satz auf"><dt>Kein Baukasten</dt><dd>Ihre Seite wird von Hand geschrieben. Deshalb lädt sie in Millisekunden statt in Sekunden — oben auf dieser Seite steht der gemessene Wert.</dd></div>
+      <div class="satz auf"><dt>Festpreis</dt><dd>Keine Stundenabrechnung, keine Nachforderung. Fällt mir unterwegs etwas auf, das nicht abgesprochen war, sage ich Ihnen vorher Bescheid.</dd></div>
+      <div class="satz auf"><dt>Die Zugänge gehören Ihnen</dt><dd>Domain, Hosting, Shop-Konto laufen auf Ihren Namen. Wenn Sie mich nicht mehr wollen, nehmen Sie alles mit.</dd></div>
+      <div class="satz auf"><dt>Ich sage, wenn etwas unnötig ist</dt><dd>Nicht jeder Betrieb braucht einen Onlineshop. Wenn eine Seite mit Öffnungszeiten und Telefonnummer reicht, sage ich das — auch wenn ich daran weniger verdiene.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="kontakt auf">
+      <h2>Kurz reden?</h2>
+      <p class="untertitel" style="margin-bottom:0">
+        Sagen Sie mir in zwei Sätzen, worum es geht. Sie bekommen eine ehrliche Einschätzung
+        und einen Festpreis — oder den Hinweis, dass Sie das Geld nicht ausgeben müssen.
+      </p>
+      <ul class="kontaktzeilen">
+        <li><span class="label">Telefon</span><a href="tel:+4917613471238">0176 13471238</a></li>
+        <li><span class="label">E-Mail</span><a href="mailto:info@zebic-webdesign.de">info@zebic-webdesign.de</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="impressum">
+  <div class="wrap rechtstext">
+    <h2 class="auf">Impressum</h2>
+    <h3>Angaben gemäß § 5 DDG</h3>
+    <p>Marko Zebic<br>Zebic Webdesign<br>ANSCHRIFT_EINTRAGEN<br>57627 Hachenburg</p>
+    <p>Telefon: 0176 13471238<br>E-Mail: info@zebic-webdesign.de</p>
+    <p>Kleinunternehmer gemäß § 19 UStG — es wird keine Umsatzsteuer ausgewiesen.</p>
+    <h3>Verantwortlich für den Inhalt</h3>
+    <p>Marko Zebic, Anschrift wie oben.</p>
+    <h3>Datenschutz</h3>
+    <p>Diese Seite setzt keine Cookies und bindet keine Analyse- oder Werbedienste ein.
+       Schriftarten werden von Google Fonts geladen; dabei überträgt Ihr Browser Ihre IP-Adresse an Google.
+       Wenn Sie mir schreiben oder anrufen, verwende ich Ihre Angaben ausschließlich, um Ihre Anfrage zu beantworten.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Marko Zebic · Zebic Webdesign</span>
+    <span><a href="#impressum">Impressum &amp; Datenschutz</a></span>
+  </div>
+</footer>
+
+<script>
+// Ladezeit messen und anzeigen — der Beleg steht auf der Seite, nicht im Versprechen.
+(function(){
+  function zeigen(){
+    var zahl = document.getElementById('tempo-zahl');
+    var text = document.getElementById('tempo-text');
+    if(!zahl || !text) return;
+    var ms = 0;
+    try{
+      var nav = performance.getEntriesByType('navigation')[0];
+      ms = nav ? Math.round(nav.domContentLoadedEventEnd) : Math.round(performance.now());
+    }catch(e){ ms = Math.round(performance.now()); }
+    if(!ms || ms < 1) ms = 1;
+    zahl.textContent = ms + ' ms';
+    text.textContent = 'hat diese Seite gebraucht, bis sie bei Ihnen stand. Eine Baukastenseite braucht dafür meist das Zehn- bis Dreißigfache. Das ist der Unterschied zwischen Handarbeit und Vorlage.';
+  }
+  if(document.readyState === 'complete') zeigen();
+  else window.addEventListener('load', zeigen);
+})();
+
+// Abschnitte einblenden
+(function(){
+  var ziele = document.querySelectorAll('.auf');
+  if(!('IntersectionObserver' in window)){
+    ziele.forEach(function(e){ e.classList.add('da'); });
+    return;
+  }
+  var beobachter = new IntersectionObserver(function(eintraege){
+    eintraege.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('da'); beobachter.unobserve(e.target); }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+  ziele.forEach(function(e){ beobachter.observe(e); });
+})();
+</script>
+</body>
+</html>
