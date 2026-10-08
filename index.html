@@ -92,8 +92,13 @@ header.top.fest{
 }
 header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px}
 .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem; white-space:nowrap; flex:none}
-.logo .mark{height:25px; width:auto; display:block}
-.logo .wort{font-weight:700; letter-spacing:-.02em}
+.logo{gap:13px}
+.logo .mark{height:26px; width:auto; display:block}
+.logo .wort{height:21px; width:auto; display:block}
+header.top.fest .logo .mark{height:23px}
+header.top.fest .logo .wort{height:19px}
+.logo .mark,.logo .wort{transition:height .3s ease}
+@media (max-width:420px){.logo .wort{height:17px}}
 header nav{display:flex; gap:clamp(14px,2vw,30px); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; white-space:nowrap}
 header nav a{position:relative; padding-block:4px}
 header nav a::after{content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:currentColor; transition:right .3s ease}
@@ -299,6 +304,33 @@ h2 em{font-style:italic; font-weight:400; color:var(--akzent)}
 .ansehen:hover{color:var(--akzent)}
 @media (max-width:860px){.arbeit{grid-template-columns:1fr}.arbeit .inhalt{order:-1}}
 
+/* ===== Ladezeit-Rennen ===== */
+.rennen{
+  margin-top:46px; border:1px solid var(--linie); border-radius:18px;
+  padding:clamp(24px,4vw,40px); background:var(--bg-2, rgba(255,255,255,.02));
+}
+.rennen h3{font-size:clamp(1.1rem,2.2vw,1.45rem); font-weight:600; letter-spacing:-.02em; margin:0 0 6px}
+.rennen .unterzeile{color:var(--grau); font-size:.95rem; margin:0 0 30px}
+.bahn{display:grid; grid-template-columns:minmax(0,1fr); gap:9px; margin-bottom:22px}
+.bahn:last-of-type{margin-bottom:0}
+.bahn .kopf{display:flex; justify-content:space-between; align-items:baseline; gap:16px; font-size:.95rem}
+.bahn .wer{font-weight:600}
+.bahn .zeit{font-variant-numeric:tabular-nums; color:var(--grau); font-size:.9rem}
+.bahn .strecke{position:relative; height:12px; border-radius:99px; background:rgba(242,239,233,.07); overflow:hidden}
+.bahn .wagen{
+  position:absolute; inset:0 100% 0 0; border-radius:99px;
+  background:linear-gradient(90deg,var(--akzent),#7ea3ff);
+}
+.bahn.langsam .wagen{background:linear-gradient(90deg,#4a4e57,#6b707b)}
+.bahn.fertig .zeit{color:var(--elfenbein); font-weight:600}
+.rennen .fussnote{margin:26px 0 0; font-size:.86rem; color:var(--grau)}
+.rennen .nochmal{
+  margin-top:18px; background:none; border:1px solid var(--linie); color:var(--elfenbein);
+  border-radius:99px; padding:10px 20px; font:inherit; font-size:.88rem; cursor:pointer;
+  transition:border-color .2s ease, background .2s ease;
+}
+.rennen .nochmal:hover{border-color:var(--akzent); background:rgba(59,111,245,.08)}
+
 /* ===== Ablauf ===== */
 .schritte{list-style:none; margin:0; padding:0; counter-reset:s; display:grid; gap:0}
 .schritte li{counter-increment:s; display:grid; grid-template-columns:auto 1fr; gap:28px; padding-block:30px; border-top:1px solid var(--linie)}
@@ -470,7 +502,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
 <header class="top">
   <div class="wrap">
-    <a href="#" class="logo" aria-label="Zebic Webdesign, zum Seitenanfang"><img class="mark" src="bilder/zeichen.png?v=2" alt="" width="240" height="160"><span class="wort">Zebic Webdesign</span></a>
+    <a href="#" class="logo" aria-label="Zebic Webdesign, zum Seitenanfang"><img class="mark" src="bilder/zeichen.png?v=2" alt="" width="240" height="160"><img class="wort" src="bilder/schriftzug.png?v=2" alt="Zebic Webdesign" width="168" height="52"></a>
     <nav>
       <a href="#leistungen">Leistungen</a>
       <a href="#arbeiten">Arbeiten</a>
@@ -612,6 +644,29 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <div class="tempokasten auf">
       <span class="ms" id="ms">–</span>
       <p id="mstext">Diese Seite misst gerade, wie lange sie bei Ihnen gebraucht hat.</p>
+    </div>
+
+    <div class="rennen auf" id="rennen">
+      <h3>Sehen Sie den Unterschied, statt ihn zu glauben.</h3>
+      <p class="unterzeile">Beide Balken starten gleichzeitig. Rechts steht die Zeit, die wirklich gemessen wurde.</p>
+
+      <div class="bahn" data-dauer="0" id="bahn-hier">
+        <div class="kopf"><span class="wer">Diese Seite</span><span class="zeit">startet …</span></div>
+        <div class="strecke"><i class="wagen"></i></div>
+      </div>
+
+      <div class="bahn langsam" data-dauer="1506">
+        <div class="kopf"><span class="wer">Eine ordentliche Baukastenseite</span><span class="zeit">startet …</span></div>
+        <div class="strecke"><i class="wagen"></i></div>
+      </div>
+
+      <div class="bahn langsam" data-dauer="6952">
+        <div class="kopf"><span class="wer">Die langsamste Seite, die ich diese Woche geprüft habe</span><span class="zeit">startet …</span></div>
+        <div class="strecke"><i class="wagen"></i></div>
+      </div>
+
+      <p class="fussnote">Die beiden unteren Werte stammen aus zwei Seiten, die ich am 8. Oktober 2026 gemessen habe — ohne Namen, weil es nicht um die Betriebe geht, sondern um die Bauweise. Der obere Wert ist der, den Ihr Browser gerade eben gebraucht hat.</p>
+      <button class="nochmal" type="button">Nochmal laufen lassen</button>
     </div>
   </div>
 </section>
@@ -964,6 +1019,75 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       gleis.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
       requestAnimationFrame(lauf);
     })();
+  })();
+
+  /* ---- Das Rennen: Balken laufen in Echtzeit ---- */
+  (function(){
+    var kasten = document.getElementById('rennen');
+    if(!kasten) return;
+    var bahnen = kasten.querySelectorAll('.bahn');
+    var knopf  = kasten.querySelector('.nochmal');
+
+    function eigeneZeit(){
+      try{
+        var nav = performance.getEntriesByType('navigation')[0];
+        return Math.max(1, Math.round(nav ? nav.domContentLoadedEventEnd : performance.now()));
+      }catch(e){ return Math.max(1, Math.round(performance.now())); }
+    }
+
+    function starte(){
+      var hier = document.getElementById('bahn-hier');
+      if(hier) hier.dataset.dauer = eigeneZeit();
+
+      var langsamste = 0;
+      bahnen.forEach(function(b){ langsamste = Math.max(langsamste, +b.dataset.dauer); });
+      /* Das Rennen wird auf 3,2 Sekunden gestaucht, damit niemand sieben Sekunden wartet.
+         Die Verhältnisse bleiben dabei genau erhalten. */
+      var raffer = 3200 / langsamste;
+
+      bahnen.forEach(function(b){
+        var wagen = b.querySelector('.wagen'), anzeige = b.querySelector('.zeit');
+        var echt = +b.dataset.dauer, lauf = echt * raffer;
+        b.classList.remove('fertig');
+        wagen.style.transition = 'none';
+        wagen.style.right = '100%';
+        anzeige.textContent = 'startet …';
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){
+            wagen.style.transition = 'right ' + lauf + 'ms linear';
+            wagen.style.right = '0%';
+          });
+        });
+        var start = performance.now();
+        (function tick(jetzt){
+          var p = Math.min(1, (jetzt - start) / lauf);
+          anzeige.textContent = (echt * p < 1000)
+            ? Math.round(echt * p) + ' ms'
+            : (echt * p / 1000).toFixed(2).replace('.', ',') + ' s';
+          if(p < 1) requestAnimationFrame(tick);
+          else {
+            b.classList.add('fertig');
+            anzeige.textContent = echt < 1000 ? echt + ' ms' : (echt/1000).toFixed(2).replace('.', ',') + ' s';
+          }
+        })(start);
+      });
+    }
+
+    if(knopf) knopf.addEventListener('click', starte);
+
+    if(reduziert || !('IntersectionObserver' in window)){
+      bahnen.forEach(function(b){
+        var echt = +b.dataset.dauer || eigeneZeit();
+        b.querySelector('.wagen').style.right = '0%';
+        b.querySelector('.zeit').textContent = echt < 1000 ? echt + ' ms' : (echt/1000).toFixed(2).replace('.',',') + ' s';
+        b.classList.add('fertig');
+      });
+      return;
+    }
+    var beo = new IntersectionObserver(function(e){
+      e.forEach(function(x){ if(x.isIntersecting){ beo.unobserve(x.target); starte(); } });
+    }, {threshold:0.4});
+    beo.observe(kasten);
   })();
 
   /* ---- Preise zählen hoch, sobald sie sichtbar werden ---- */
