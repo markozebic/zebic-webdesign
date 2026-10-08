@@ -92,11 +92,11 @@ header.top.fest{
 }
 header.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px}
 .logo{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:1.05rem; white-space:nowrap; flex:none}
-.logo{gap:13px}
-.logo .mark{height:26px; width:auto; display:block}
-.logo .wort{height:21px; width:auto; display:block}
-header.top.fest .logo .mark{height:23px}
-header.top.fest .logo .wort{height:19px}
+.logo{gap:16px}
+.logo .mark{height:38px; width:auto; display:block}
+.logo .wort{height:30px; width:auto; display:block}
+header.top.fest .logo .mark{height:31px}
+header.top.fest .logo .wort{height:25px}
 .logo .mark,.logo .wort{transition:height .3s ease}
 @media (max-width:900px){
   .logo{gap:11px}
@@ -170,8 +170,7 @@ body.menue-auf #menue .fussnote{opacity:1}
 }
 
 /* ===== Hero: Zeilen fahren hinter einer Maske hervor ===== */
-.zeile{display:block; overflow:hidden; padding-block:.1em .06em; margin-block:-.1em -.06em}
-.zeile:last-child{padding-bottom:.14em; margin-bottom:-.14em}
+.zeile{display:block; overflow:hidden; padding-block:.12em .2em; margin-block:-.12em -.2em}
 .zeile > span{
   display:block; transform:translateY(105%); opacity:0;
   transition:transform 1.05s cubic-bezier(.16,1,.3,1), opacity .8s ease;
@@ -616,7 +615,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
     <div class="leistung auf">
       <span class="nr">01</span>
-      <div><h3>Internetseite</h3><p>Eine Seite, die auf dem Handy funktioniert, bei Google gefunden wird und in drei Sekunden sagt, was Sie anbieten. Mit Impressum und Datenschutz, rechtlich sauber.</p></div>
+      <div><h3>Internetseite</h3><p>Funktioniert auf dem Handy, wird bei Google gefunden und sagt in drei Sekunden, was Sie anbieten. Mit Impressum und Datenschutz.</p></div>
       <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="349">0</i> €</span><span class="dauer">5 Werktage</span></div>
     </div>
 
@@ -628,7 +627,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
     <div class="leistung auf">
       <span class="nr">03</span>
-      <div><h3>Shop in Ordnung bringen</h3><p>Ihr Shop bricht auf dem Handy, zeigt falsche Versandkosten oder Platzhaltertexte aus der Vorlage. Ich gehe ihn durch und räume auf.</p></div>
+      <div><h3>Shop in Ordnung bringen</h3><p>Bricht auf dem Handy, falsche Versandkosten, Platzhaltertexte aus der Vorlage. Ich gehe den Shop durch und räume auf.</p></div>
       <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="149">0</i> €</span><span class="dauer">3 Werktage</span></div>
     </div>
 
@@ -646,7 +645,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
     <div class="leistung auf">
       <span class="nr">06</span>
-      <div><h3>Laufende Betreuung</h3><p>Produkte einpflegen, Texte ändern, Updates, Erreichbarkeit im Blick. Damit die Seite nicht nach einem Jahr aussieht wie von vorgestern.</p></div>
+      <div><h3>Laufende Betreuung</h3><p>Produkte einpflegen, Texte ändern, Updates. Damit die Seite nicht nach einem Jahr aussieht wie von vorgestern.</p></div>
       <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="99">0</i> € / Monat</span><span class="dauer">monatlich kündbar</span></div>
     </div>
   </div>
@@ -656,7 +655,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
   <div class="wrap">
     <div class="kapitel auf">02 — Der Unterschied</div>
     <h2 class="wortreveal">Baukasten oder <em>Handarbeit</em>.</h2>
-    <p class="einleitung auf">Ich habe 1.188 Betriebsseiten aus dem Westerwald durchgesehen. Die meisten sind zusammengeklickt — das sieht man nicht sofort, man merkt es beim Laden.</p>
+    <p class="einleitung auf">Ich habe 1.188 Betriebsseiten aus dem Westerwald durchgesehen. Die meisten sind zusammengeklickt. Man sieht es nicht sofort — man merkt es beim Laden.</p>
 
     <div class="vergleich">
       <div class="spalte auf">
@@ -679,10 +678,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       </div>
     </div>
 
-    <div class="tempokasten auf">
-      <span class="ms" id="ms">–</span>
-      <p id="mstext">Diese Seite misst gerade, wie lange sie bei Ihnen gebraucht hat.</p>
-    </div>
+
 
     <div class="rennen auf" id="rennen">
       <h3>Sehen Sie den Unterschied, statt ihn zu glauben.</h3>
@@ -754,22 +750,22 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <h2 class="wortreveal">Was Betriebe mich fragen.</h2>
 
     <details class="auf"><summary>Was kostet die Seite im laufenden Betrieb?</summary>
-      <p>Die Domain etwa 15 € im Jahr. Das Hosting kann bei einer von Hand gebauten Seite kostenlos laufen. Es gibt keine Monatsgebühr, die Sie an mich zahlen müssen — nur wenn Sie die Betreuung wollen.</p></details>
+      <p>Rund 15 € im Jahr für die Domain. Das Hosting kann bei einer von Hand gebauten Seite kostenlos laufen. An mich zahlen Sie monatlich nichts — außer Sie wollen die Betreuung.</p></details>
 
     <details class="auf"><summary>Wem gehört die Seite am Ende?</summary>
-      <p>Ihnen. Domain, Hosting und Shop-Konto laufen auf Ihren Namen, nicht auf meine. Wenn Sie mit mir nicht mehr arbeiten wollen, nehmen Sie alles mit und brauchen meine Zustimmung nicht.</p></details>
+      <p>Ihnen. Domain, Hosting und Shop-Konto laufen auf Ihren Namen. Wenn Sie nicht mehr mit mir arbeiten wollen, nehmen Sie alles mit — ohne meine Zustimmung.</p></details>
 
     <details class="auf"><summary>Sie sind doch noch jung — können Sie das?</summary>
-      <p>Ich bin 20 und mache eine Ausbildung zum Bankkaufmann. Websites und Shops baue ich daneben, angefangen mit meinem eigenen Shop. Was ich kann, sehen Sie an dieser Seite — die habe ich selbst gebaut, und sie lädt schneller als die meisten Agenturseiten. Was ich nicht kann, sage ich Ihnen, bevor Sie zahlen.</p></details>
+      <p>Ich bin 20 und mache eine Ausbildung zum Bankkaufmann. Was ich kann, sehen Sie an dieser Seite — selbst gebaut, und schneller als die meisten Agenturseiten. Was ich nicht kann, sage ich Ihnen, bevor Sie zahlen.</p></details>
 
     <details class="auf"><summary>Was, wenn mir das Ergebnis nicht gefällt?</summary>
-      <p>Sie sehen die Seite, bevor sie online geht. Änderungswünsche in dieser Phase gehören zum Festpreis. Bezahlt wird nach Fertigstellung, nicht vorher.</p></details>
+      <p>Sie sehen die Seite, bevor sie online geht. Änderungen in dieser Phase gehören zum Festpreis. Bezahlt wird nach Fertigstellung.</p></details>
 
     <details class="auf"><summary>Brauche ich überhaupt einen Onlineshop?</summary>
-      <p>Oft nicht. Viele Betriebe brauchen eine Seite mit Öffnungszeiten, Leistungen und Telefonnummer — mehr nicht. Wenn das bei Ihnen so ist, sage ich Ihnen das, auch wenn ich daran weniger verdiene.</p></details>
+      <p>Oft nicht. Viele Betriebe brauchen Öffnungszeiten, Leistungen und eine Telefonnummer — mehr nicht. Wenn das bei Ihnen so ist, sage ich es Ihnen, auch wenn ich daran weniger verdiene.</p></details>
 
     <details class="auf"><summary>Wie lange dauert es wirklich?</summary>
-      <p>Die Werktage oben gelten ab dem Moment, in dem mir Ihre Texte und Bilder vorliegen. Erfahrungsgemäß ist das der Teil, der am längsten dauert — nicht das Bauen.</p></details>
+      <p>Die Werktage oben zählen ab dem Tag, an dem mir Ihre Texte und Bilder vorliegen. Das ist erfahrungsgemäß der längere Teil — nicht das Bauen.</p></details>
 
     <details class="auf"><summary>Arbeiten Sie auch außerhalb des Westerwalds?</summary>
       <p>Ja. Vor Ort bin ich in Hachenburg, Altenkirchen, Montabaur und Betzdorf. Alles, was am Rechner geht, geht auch darüber hinaus.</p></details>
@@ -923,21 +919,6 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     addEventListener('scroll', pruefe, {passive:true});
     pruefe();
   })();
-
-  /* ---- Ladezeit messen ---- */
-  function tempo(){
-    var el = document.getElementById('ms'), txt = document.getElementById('mstext');
-    if(!el) return;
-    var ms;
-    try{
-      var nav = performance.getEntriesByType('navigation')[0];
-      ms = nav ? Math.round(nav.domContentLoadedEventEnd) : Math.round(performance.now());
-    }catch(e){ ms = Math.round(performance.now()); }
-    if(!ms || ms < 1) ms = 1;
-    el.textContent = ms + ' ms';
-    txt.textContent = 'hat diese Seite gebraucht, bis sie bei Ihnen stand — gemessen in Ihrem Browser, gerade eben. Eine Baukastenseite braucht dafür zwei- bis viertausend Millisekunden. Google misst diesen Wert bei jeder Seite mit.';
-  }
-  if(document.readyState === 'complete') tempo(); else window.addEventListener('load', tempo);
 
   /* ---- Mauszeiger ---- */
   var punkt = document.getElementById('punkt');
