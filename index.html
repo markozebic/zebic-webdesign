@@ -629,37 +629,37 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <div class="leistung auf">
       <span class="nr">01</span>
       <div><h3>Internetseite</h3><p>Funktioniert auf dem Handy, wird bei Google gefunden und sagt in drei Sekunden, was Sie anbieten. Mit Impressum und Datenschutz.</p></div>
-      <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="349">0</i> €</span><span class="dauer">5 Werktage</span></div>
+      <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="349">349</i> €</span><span class="dauer">5 Werktage</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">02</span>
       <div><h3>Onlineshop</h3><p>Kompletter Shopify-Shop: Theme, Startseite, Produktseiten, Navigation, Versand- und Zahlungseinstellungen, Ihre Rechtstexte eingebunden. Danach können Sie verkaufen.</p></div>
-      <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="449">0</i> €</span><span class="dauer">7 Werktage</span></div>
+      <div class="wert"><span class="zahl">ab <i class="zaehlt" data-ziel="449">449</i> €</span><span class="dauer">7 Werktage</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">03</span>
       <div><h3>Shop in Ordnung bringen</h3><p>Bricht auf dem Handy, falsche Versandkosten, Platzhaltertexte aus der Vorlage. Ich gehe den Shop durch und räume auf.</p></div>
-      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="149">0</i> €</span><span class="dauer">3 Werktage</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="149">149</i> €</span><span class="dauer">3 Werktage</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">04</span>
       <div><h3>Sicherheitswarnung beseitigen</h3><p>Der Browser sperrt Ihre Seite mit einer roten Warnung, bevor sie überhaupt erscheint. Meist ein abgelaufenes Zertifikat — und jeder Besucher dreht vorher um.</p></div>
-      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="80">0</i> €</span><span class="dauer">meist am selben Tag</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="80">80</i> €</span><span class="dauer">meist am selben Tag</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">05</span>
       <div><h3>Beratung</h3><p>Wenn Sie keinen Auftrag wollen, sondern nur eine Einschätzung: sechzig Minuten am Telefon oder per Videoanruf. Wir gehen Ihre Seite gemeinsam durch, danach wissen Sie, was zu tun ist. Eine Anfrage mit Festpreis bleibt davon unberührt und kostet nichts.</p></div>
-      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="59">0</i> €</span><span class="dauer">60 Minuten</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="59">59</i> €</span><span class="dauer">60 Minuten</span></div>
     </div>
 
     <div class="leistung auf">
       <span class="nr">06</span>
       <div><h3>Laufende Betreuung</h3><p>Produkte einpflegen, Texte ändern, Updates. Damit die Seite nicht nach einem Jahr aussieht wie von vorgestern.</p></div>
-      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="99">0</i> € / Monat</span><span class="dauer">monatlich kündbar</span></div>
+      <div class="wert"><span class="zahl"><i class="zaehlt" data-ziel="99">99</i> € / Monat</span><span class="dauer">monatlich kündbar</span></div>
     </div>
   </div>
 </section>
@@ -1147,6 +1147,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
         if(!e.isIntersecting) return;
         beo.unobserve(e.target);
         var z = e.target, ziel = +z.dataset.ziel, start = performance.now(), dauer = 900;
+        z.textContent = '0';
         (function lauf(jetzt){
           var p = Math.min(1, (jetzt - start) / dauer);
           var weich = 1 - Math.pow(1 - p, 3);
