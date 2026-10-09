@@ -1240,6 +1240,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     function fortschritt(n){
       balken.style.width = (n/3*100) + '%';
       anzeige.textContent = n >= 3 ? 'Ergebnis' : ('Schritt ' + (n+1) + ' von 3');
+      if(n >= 3) balken.style.width = '100%';
     }
 
     function zeige(name){
@@ -1268,7 +1269,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       var zeilen = '<li><span class="k">Leistung</span><span class="v">' + e.was + '</span></li>' +
                    '<li><span class="k">Fertig in</span><span class="v">' + e.dauer + '</span></li>';
       if(mitBetreuung) zeilen += '<li><span class="k">Danach</span><span class="v">99 € im Monat, monatlich kündbar</span></li>';
-      zeilen += '<li><span class="k">Abrechnung</span><span class="v">Festpreis, Rechnung nach Fertigstellung</span></li>';
+      if(e.preis !== 0) zeilen += '<li><span class="k">Abrechnung</span><span class="v">Festpreis, Rechnung nach Fertigstellung</span></li>';
 
       var zeilenUm = [
         'Hallo Herr Zebic,',
@@ -1285,7 +1286,8 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 
       koerper.innerHTML =
         '<div class="assi-ergebnis">' +
-          '<div class="summe"><span class="preis-gross">' + preisText + '</span><span class="fest">Festpreis · keine Stundenabrechnung</span></div>' +
+          '<div class="summe"><span class="preis-gross">' + preisText + '</span><span class="fest">' +
+            (e.preis === 0 ? 'Unverbindlich · keine Verpflichtung' : 'Festpreis · keine Stundenabrechnung') + '</span></div>' +
           (e.text ? '<p class="assi-hinweis">' + e.text + '</p>' : '') +
           '<ul class="assi-liste">' + zeilen + '</ul>' +
           '<div class="assi-knoepfe">' +
@@ -1305,6 +1307,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
           var o = schritte[stand].optionen[+b.dataset.i];
           pfad.push(o);
           if(o.weiter) zeige(o.weiter);
+          else if(o.ende && o.ende.preis === 0) zeigeErgebnis();   /* kostenloses Gespräch braucht keine Betreuungsfrage */
           else if(o.ende) zeige('betreuung');
           else zeigeErgebnis();
         });
