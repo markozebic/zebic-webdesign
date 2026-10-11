@@ -268,7 +268,6 @@ h1 em{font-style:italic; font-weight:400; color:var(--akzent)}
 }
 .laufband i{font-style:normal; color:var(--akzent); opacity:.75; margin-left:4px}
 
-
 /* ===== Abschnitte ===== */
 section{position:relative; z-index:1; padding-block:clamp(72px,11vw,160px)}
 .kapitel{
@@ -425,8 +424,10 @@ details p{color:var(--grau); margin:14px 0 0; max-width:46rem}
   aspect-ratio:4/5; background:linear-gradient(160deg,#17191e,#0e0f12);
   display:grid; place-items:center; text-align:center; padding:28px;
 }
-.portraet img{width:100%; height:100%; object-fit:cover; display:block}
-.portraet .platzhalter{color:var(--grau); font-size:.86rem; line-height:1.5; max-width:17rem}
+
+.portraet
+  .portraet img{ width:100%; height:100%; object-fit:cover; object-position:50% 22%; display:block }
+  .portraet{ padding:0 }
 .portraet .platzhalter img{width:62px; height:auto; display:block; margin:0 auto 18px; opacity:.5}
 .person .text p{font-size:clamp(1rem,1.6vw,1.12rem); color:var(--creme); margin:0 0 18px; max-width:38rem}
 .person .text p.leise{color:var(--grau)}
@@ -687,8 +688,6 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
       </div>
     </div>
 
-
-
     <div class="rennen auf" id="rennen">
       <h3>Sehen Sie den Unterschied, statt ihn zu glauben.</h3>
       <p class="unterzeile">Beide Balken starten gleichzeitig. Rechts steht die Zeit, die wirklich gemessen wurde.</p>
@@ -786,10 +785,14 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     <div class="kapitel auf">06 — Wer das macht</div>
     <div class="person">
       <div class="portraet auf">
-        <div class="platzhalter">
-          <img src="bilder/zeichen.png?v=4" alt="" width="240" height="160">
-          Hier kommt das Foto hin.
-        </div>
+        <picture>
+          <source type="image/webp" srcset="bilder/marko.webp 720w, bilder/marko@2x.webp 1080w"
+                  sizes="(max-width:900px) 320px, 38vw">
+          <img src="bilder/marko.jpg" srcset="bilder/marko.jpg 720w, bilder/marko@2x.jpg 1080w"
+               sizes="(max-width:900px) 320px, 38vw"
+               alt="Marko Zebic, Inhaber von Zebic Webdesign, in Hachenburg"
+               width="720" height="900" loading="lazy" decoding="async">
+        </picture>
       </div>
       <div class="text">
         <h2 class="wortreveal" style="margin-bottom:26px">Sie reden mit dem, der es baut.</h2>
