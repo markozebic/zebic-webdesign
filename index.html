@@ -988,21 +988,6 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
     zeichne();
   })();
 
-  /* ---- Wasserzeichen bewegt sich langsamer als die Seite ---- */
-  (function(){
-    var zeichen = document.querySelector('.wasserzeichen');
-    if(!zeichen || reduziert) return;
-    var laeuft = false;
-    function schiebe(){
-      laeuft = false;
-      if(scrollY > innerHeight * 1.4) return;
-      zeichen.style.transform = 'translateY(calc(-50% + ' + (scrollY * 0.16) + 'px))';
-    }
-    addEventListener('scroll', function(){
-      if(!laeuft){ laeuft = true; requestAnimationFrame(schiebe); }
-    }, {passive:true});
-  })();
-
   /* ---- Laufband: Position wird selbst gerechnet, damit nichts springt ---- */
   (function(){
     var band = document.querySelector('.laufband');
