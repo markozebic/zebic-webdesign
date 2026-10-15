@@ -210,12 +210,6 @@ body.menue-auf #menue a:nth-child(7){transition-delay:.35s}
 
 /* ===== Hero ===== */
 .hero{position:relative; z-index:1; min-height:100svh; display:flex; align-items:center; padding-block:128px 72px; overflow:hidden}
-.wasserzeichen{
-  position:absolute; right:-2%; top:50%; transform:translateY(-50%);
-  width:min(26vw,330px); opacity:.05; pointer-events:none; user-select:none; z-index:-1;
-}
-.wasserzeichen img{width:100%; height:auto; display:block}
-@media (max-width:820px){.wasserzeichen{width:48vw; right:-12%; opacity:.04}}
 h1{
   font-weight:600; letter-spacing:-.045em; line-height:.93; margin:0 0 34px;
   font-size:clamp(2.9rem,9.4vw,8.4rem); text-wrap:balance;
@@ -515,8 +509,8 @@ body.menue-auf #leiste{transform:translateY(102%)}
 /* ===== Fuß ===== */
 footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-block:50px calc(60px + 74px); font-size:.88rem; color:var(--grau)}
 .fussreihe{display:flex; flex-wrap:wrap; gap:20px 36px; justify-content:space-between; align-items:center}
-.fusslogo{height:118px; width:auto; opacity:.9; display:block}
-@media (max-width:620px){.fusslogo{height:94px}}
+.fusslogo{height:62px; width:auto; opacity:.9; display:block}
+@media (max-width:620px){.fusslogo{height:50px}}
 .recht{margin-top:44px; padding-top:34px; border-top:1px solid var(--linie); max-width:50rem}
 .recht h3{color:var(--elfenbein); font-size:1rem; font-weight:600; margin:24px 0 8px; letter-spacing:-.01em}
 .recht h3:first-child{margin-top:0}
@@ -576,7 +570,6 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 <main>
 
 <section class="hero">
-  <div class="wasserzeichen" aria-hidden="true"><img src="bilder/zeichen.png?v=5" alt="" width="600" height="638"></div>
   <div class="wrap">
     <h1><span class="zeile"><span>Websites, die</span></span><span class="zeile"><span>gefunden werden.</span></span><span class="zeile"><span><em>Von Hand gebaut.</em></span></span></h1>
     <p class="vorspann auf">
@@ -841,7 +834,7 @@ footer{position:relative; z-index:1; border-top:1px solid var(--linie); padding-
 <footer>
   <div class="wrap">
           <div class="fussreihe">
-        <img class="fusslogo" src="bilder/logo-voll.png?v=6" alt="Zebic Webdesign" width="1200" height="841" loading="lazy">
+        <img class="fusslogo" src="bilder/schriftzug.png?v=6" alt="Zebic Webdesign" width="1200" height="429" loading="lazy">
         <span>© 2026 Marko Zebic · Dr.-Emde-Straße 17, 57627 Hachenburg</span>
       </div>
 
